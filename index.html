@@ -155,6 +155,249 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/how-to-build-local-repository/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/04/how-to-build-local-repository/" class="post-title-link" itemprop="url">deb仓库搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-04 18:10:07" itemprop="dateCreated datePublished" datetime="2021-12-04T18:10:07+00:00">2021-12-04</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>570</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="reprepro构建本地仓库"><a href="#reprepro构建本地仓库" class="headerlink" title="reprepro构建本地仓库"></a>reprepro构建本地仓库</h1><h2 id="安装reprepro"><a href="#安装reprepro" class="headerlink" title="安装reprepro"></a>安装reprepro</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install reprepro -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>创建仓库目录，然后在仓库目录下的<code>conf</code>路径中创建<code>distributions</code>文件，文件内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Origin: debian_buster</span><br><span class="line">Suite: stable</span><br><span class="line">Codename: buster</span><br><span class="line">Version: 1.0</span><br><span class="line">Architectures: arm64 mips64el sw_64 source </span><br><span class="line">Components: main contrib non-free</span><br><span class="line">Description: this is a local repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入deb"><a href="#导入deb" class="headerlink" title="导入deb"></a>导入deb</h2><p>在仓库路径下执行<code>reprepro includedeb buster *.deb </code> 命令</p>
+<h1 id="nginx实现reprepro仓库的映射"><a href="#nginx实现reprepro仓库的映射" class="headerlink" title="nginx实现reprepro仓库的映射"></a>nginx实现reprepro仓库的映射</h1><h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx-full -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure>
+
+<p>修改内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /repo&#123;</span><br><span class="line">	alias /home/user/repo;</span><br><span class="line">	autoindex on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>出现访问权限问题时，需要修改<code>nginx.conf</code>文件，将第一行的<code>www-data</code>改为<code>root</code>或<code>user</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改完后，重新读取配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/how-to-build-debs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/04/how-to-build-debs/" class="post-title-link" itemprop="url">基于源码的deb软件包构建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-04 17:45:31" itemprop="dateCreated datePublished" datetime="2021-12-04T17:45:31+00:00">2021-12-04</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>安装编译相关工具<code>build-essential</code>和<code>devscripts</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential devscripts -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="基于debian仓库源码"><a href="#基于debian仓库源码" class="headerlink" title="基于debian仓库源码"></a>基于debian仓库源码</h1><p>以<code>fonts-wqy-microhei</code>为例，链接为<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/f/fonts-wqy-microhei/">fonts-wqy-microhei</a>。</p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3.1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，执行<code>dpkg-buildpackage</code>命令进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fonts-wqy-microhei-0.2.0-beta/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖"><a href="#缺少依赖" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>缺少<code>xdelta3</code>依赖，在本机使用<code>apt</code>命令安装，安装后重新编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xdelta3 -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成"><a href="#编译完成" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于ubuntu仓库源码"><a href="#基于ubuntu仓库源码" class="headerlink" title="基于ubuntu仓库源码"></a>基于ubuntu仓库源码</h1><p>以<code>elementary-xfce-icon-theme</code>为例，链接为<a target="_blank" rel="noopener" href="https://packages.ubuntu.com/impish/elementary-xfce-icon-theme">elementary-xfce-icon-theme</a>。</p>
+<h2 id="下载源码-1"><a href="#下载源码-1" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://archive.ubuntu.com/ubuntu/pool/universe/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-1"><a href="#源码编译-1" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，使用<code>dpkg-buildpackage</code>命令在本地编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd elementary-xfce-0.15.2/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖-1"><a href="#缺少依赖-1" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>安装提示中缺少的依赖，安装完成后重新开始编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install librsvg2-deb libgtk-3-dev debhelper-compat -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成-1"><a href="#编译完成-1" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于Github源码"><a href="#基于Github源码" class="headerlink" title="基于Github源码"></a>基于Github源码</h1><p>以<code>tmux</code>为例，链接为<a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/">tmux</a>。</p>
+<h2 id="下载源码-2"><a href="#下载源码-2" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用<code>git</code>下载源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tmux/tmux.git</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>git tag</code>或<code>git describe</code>查看release版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+
+<p>将源码目录修改成<code>包名-版本号</code>的格式，其中包名需要小写，然后执行<code>dh-make --createorig</code>生成<code>debian</code>目录以及<code>orig.tar.gz</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv tmux/ tmux-3.3-rc</span><br><span class="line">cd  tmux-3.3-rc/</span><br><span class="line">dh_make --createorig -sy</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-2"><a href="#源码编译-2" class="headerlink" title="源码编译"></a>源码编译</h2><p>在源码目录下执行<code>dpkg-buildpackage</code>命令在本机编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h1 id="源码拆包"><a href="#源码拆包" class="headerlink" title="源码拆包"></a>源码拆包</h1><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>如果源码包中包含标准的 <code>make install</code> 没有安装的文件，可以将文件名和目标路径写入 <code>install</code> 文件。</p>
+<p> <code>install</code> 文件每行安装一份文件，格式上先是<strong>编译目录下</strong>的文件路径，然后是一个空格，接下来是安装时的目标目录。例如，假设某个二进制文件 <code>src/bar</code>没有被默认安装，则应让 <code>install</code> 呈现成这样：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/bar /usr/bin</span><br></pre></td></tr></table></figure>
+
+<p>这意味着安装这个软件包时，将有一个二进制文件 <code>/usr/bin/bar</code>.</p>
+<h2 id="拆包案例"><a href="#拆包案例" class="headerlink" title="拆包案例"></a>拆包案例</h2><p>以<code>elementary-xfce</code>为例，链接为<a target="_blank" rel="noopener" href="http://ftp.debian.org/debian/pool/main/e/elementary-xfce/">elementary-xfce</a>。使用<code>dget</code>下载源码集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<p>首先编辑<code>debian/control</code>文件，加上<code>Package</code>及其相关配置，然后针对相应<code>Package</code>在<code>debian</code>路径中新建对应的<code>.install</code>文件</p>
+<p><code>control</code>文件新增内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Package: install-file-test</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: $&#123;misc:Depends&#125;</span><br><span class="line">Description: install-file-test</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Package</code>为源码编译后生成的<code>deb</code>包名，<code>Architecuture</code>时，<code>deb</code>包名会自动加上版本号。</p>
+<p>对应的<code>.install</code>文件名为<code>install-file-test.install</code>，内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elementary-xfce-dark/* /home/user</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，执行<code>dpkg-buildpackage</code>在本地编译源码。</p>
+<h1 id="quilt补丁工具"><a href="#quilt补丁工具" class="headerlink" title="quilt补丁工具"></a>quilt补丁工具</h1><h2 id="安装quilt工具"><a href="#安装quilt工具" class="headerlink" title="安装quilt工具"></a>安装quilt工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install quilt -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新的补丁"><a href="#创建新的补丁" class="headerlink" title="创建新的补丁"></a>创建新的补丁</h2><p>在源码路径下执行<code>quilt new</code>创建一个补丁</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt new change-build-options.patch</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>quilt add</code>将补丁应用到要修改的文件中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt add CMakeList.txt</span><br></pre></td></tr></table></figure>
+
+<p>修改文件后，执行<code>quilt refresh</code>更新<code>patch</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt patch</span><br></pre></td></tr></table></figure>
+
+<h1 id="pbuilder编译工具"><a href="#pbuilder编译工具" class="headerlink" title="pbuilder编译工具"></a>pbuilder编译工具</h1><h2 id="pbuilder工具安装"><a href="#pbuilder工具安装" class="headerlink" title="pbuilder工具安装"></a>pbuilder工具安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pbuilder -y</span><br></pre></td></tr></table></figure>
+
+<p>安装时可能需要添加仓库地址，可直接跳过。</p>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><p><code>pbuilder</code>相关的脚本有<code>/usr/sbin/pbuilder</code>，<code>/usr/lib/pbuilder/*</code>，<code>/usr/bin/pdebuild</code>。</p>
+<p>根据<code>/usr/lib/pbuilder</code>下的<code>pbuilder-loadconfig</code>脚本可知，<code>pbuilder</code>配置文件主要有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/. pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现问题。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>在<code>$HOME</code>目录里下新建<code>pbuilder</code>配置文件<code>~/.pbuilderrc</code>，配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://10.15.0.120:8081/repository/debian-proxy/</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>主要设置了<code>pbuilder</code>构建包时使用的仓库以及构建包的目标架构等。配置完成后执行<code>pbuilder create</code>创建编译构建环境，会在<code>/var/cache/pbuilder</code>路径下生成一个<code>base.tgz</code>文件。创建完成后，使用<code>pbuilder build</code>编译目标源码包，参数为<code>.dsc</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pbuilder build</span><br><span class="line">dget -du http://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.114.dsc</span><br><span class="line">pbuilder build debootstrap_1.0.114.dsc</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后，生成的<code>deb</code>包以及<code>buildinfo</code>等文件位于<code>/var/cache/pbuilder/result/</code>。</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ol>
+<li>下载的源码不包含<code>debian</code>目录时，需要先执行<code>dh_make --createorig</code>生成<code>debian</code>目录及相关文件</li>
+<li>当修改了源码内容时，需要执行<code>dpkg-source -b .</code>重新生成<code>dsc</code>文件</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/markdown/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -503,7 +746,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -540,12 +783,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">7k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3 分钟</span>
+    <span title="站点阅读时长">6 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
