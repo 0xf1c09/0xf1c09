@@ -155,6 +155,188 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/Pbuilder-Users-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/15/Pbuilder-Users-Manual/" class="post-title-link" itemprop="url">Pbuilder User's Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-15 16:10:07" itemprop="dateCreated datePublished" datetime="2021-12-15T16:10:07+08:00">2021-12-15</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>pbuilder(personal Debian package builder)是debian环境下维护debian包的专业工具，能够为每个deb包创建纯净的编译构建环境，自动解析和安装依赖包，并且不污染宿主系统。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Pbuilder安装后，相关的脚本包括<code>/usr/sbin/pbuilder</code>、<code>/usr/lib/pbuilder/*</code>、<code>/usr/bin/pdebuild</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/pbuilder/</span><br><span class="line">├── pbuilder-apt-config</span><br><span class="line">├── pbuilder-buildpackage</span><br><span class="line">├── pbuilder-buildpackage-funcs</span><br><span class="line">├── pbuilder-checkparams</span><br><span class="line">├── pbuilder-createbuildenv</span><br><span class="line">├── pbuilder-loadconfig</span><br><span class="line">├── pbuilder-modules</span><br><span class="line">├── pbuilder-runhooks</span><br><span class="line">├── pbuilder-satisfydepends -&gt; pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-apt</span><br><span class="line">├── pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-checkparams</span><br><span class="line">├── pbuilder-satisfydepends-classic</span><br><span class="line">├── pbuilder-satisfydepends-experimental</span><br><span class="line">├── pbuilder-satisfydepends-funcs</span><br><span class="line">├── pbuilder-satisfydepends-gdebi</span><br><span class="line">├── pbuilder-unshare-wrapper</span><br><span class="line">├── pbuilder-updatebuildenv</span><br><span class="line">├── pdebuild-checkparams</span><br><span class="line">└── pdebuild-internal</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>根据<code>/usr/lib/pbuilder/pbuilder-loadconfig</code>可知，<code>pbuilder</code>配置文件共有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/.pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>常用配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://mirrors.163.com/debian</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>DISTRIBUTION</code>的值对应<code>debootstrap</code>在<code>/usr/share/debootstrap/</code>目录下的脚本。</p>
+<p>注：申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现仓库没有签名而无法生成<code>base.tgz</code>的问题。</p>
+<h3 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h3><p><code>Pbuilder</code>使用时相关的临时目录是<code>/var/cache/pbuilder</code>，相关文件如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>base.tgz</code></td>
+<td align="center">由<code>pbuilder create</code>生成的编译构建环境</td>
+</tr>
+<tr>
+<td align="center"><code>aptcache</code></td>
+<td align="center">存放编译构建时下载的deb包</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译构建时的环境，由<code>base.tgz</code>解压生成</td>
+</tr>
+<tr>
+<td align="center"><code>result</code></td>
+<td align="center">存放编译构建生成的deb包及相关文件</td>
+</tr>
+</tbody></table>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><ol>
+<li>在<code>~</code>目录下，新建<code>.pbuilderrc</code>配置文件或者使用默认配置</li>
+<li>使用<code>pbuild create</code>创建纯净的编译构建环境，可以通过参数指定所要模拟的debian环境版本</li>
+<li>使用<code>apt-get source</code>下载目标deb包的src包</li>
+<li>使用<code>pbuilder build</code>编译目标源码包，参数为src包的dsc文件</li>
+<li>编译成功后生成的文件位于<code>/var/cahce/pbuilder/result</code></li>
+</ol>
+<h2 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>create</code></td>
+<td align="center">创建指定debian发行版的编译构建环境，最终会打包为<code>base.tgz</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译指定源码包，后接dsc-file指定源码包</td>
+</tr>
+<tr>
+<td align="center"><code>clean</code></td>
+<td align="center">清空<code>BUILDPALACE</code>和<code>APTCACHE</code>中的内容</td>
+</tr>
+<tr>
+<td align="center"><code>login</code></td>
+<td align="center">chroot到<code>base.tgz</code>构建编译环境中，可带<code>--save-after-login</code>配置<code>base.tgz</code>并保存</td>
+</tr>
+<tr>
+<td align="center"><code>update</code></td>
+<td align="center">更新<code>base.tgz</code></td>
+</tr>
+</tbody></table>
+<h2 id="一些技巧"><a href="#一些技巧" class="headerlink" title="一些技巧"></a>一些技巧</h2><h3 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h3><p>可以通过<code>man 8 pbuilder</code>查看hooks的相关介绍，<code>pbuilder</code>提供的一些样例位于<code>/usr/share/doc/pbuilder/examples</code>，hooks脚本都需要有执行权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/doc/pbuilder/examples/</span><br><span class="line">├── B20autopkgtest</span><br><span class="line">├── B90lintian</span><br><span class="line">├── B90list-missing</span><br><span class="line">├── B91debc</span><br><span class="line">├── B91dpkg-i</span><br><span class="line">├── B92test-pkg</span><br><span class="line">├── C10shell</span><br><span class="line">├── C11screen</span><br><span class="line">├── D10tmp</span><br><span class="line">├── D20addnonfree</span><br><span class="line">├── D65various-compiler-support</span><br><span class="line">├── D80no-man-db-rebuild</span><br><span class="line">├── D90chrootmemo</span><br></pre></td></tr></table></figure>
+
+<p>hooks命名与执行顺序对应的关系如下，摘自<code>man 8 pbuilder</code>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名</th>
+<th align="center">执行顺序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A_</td>
+<td align="center">It is executed before build starts; after unpacking the build system, and unpacking the source, and satisfying the build-dependency.</td>
+</tr>
+<tr>
+<td align="center">B_</td>
+<td align="center">It is executed after build system finishes building,successfully,before copying back the build result.</td>
+</tr>
+<tr>
+<td align="center">C_</td>
+<td align="center">It is executed after build failure, before cleanup.</td>
+</tr>
+<tr>
+<td align="center">D_</td>
+<td align="center">It is  executed before unpacking the source inside the chroot, after setting up the chroot environment.</td>
+</tr>
+</tbody></table>
+<h4 id="hooks样例"><a href="#hooks样例" class="headerlink" title="hooks样例"></a>hooks样例</h4><p><code>A01ln</code>，在编译开始前执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">ln -s /usr/bin/objdump /usr/bin/sw_64-linux-gnu-objdump</span><br><span class="line">ln -s /usr/bin/strip /usr/bin/sw_64-linux-gnu-strip</span><br><span class="line">ln -s /usr/bin/objcopy /usr/bin/sw_64-linux-gnu-objcopy</span><br><span class="line">ln -s /usr/bin/ar /usr/bin/sw_64-linux-gnu-ar</span><br><span class="line">ln -s /usr/bin/ranlib /usr/bin/sw_64-linux-gnu-ranlib</span><br></pre></td></tr></table></figure>
+
+<p><code>C10shell</code>，在编译错误时执行，方便调试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> example file to be used with --hookdir</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># invoke shell if build fails.</span></span></span><br><span class="line"></span><br><span class="line">BUILDDIR=&quot;$&#123;BUILDDIR:-/tmp/buildd&#125;&quot;</span><br><span class="line"></span><br><span class="line">apt-get install -y &quot;$&#123;APTGETOPT[@]&#125;&quot; vim less</span><br><span class="line">cd &quot;$BUILDDIR&quot;/*/debian/..</span><br><span class="line"></span><br><span class="line">/bin/bash &lt; /dev/tty &gt; /dev/tty 2&gt; /dev/tty</span><br></pre></td></tr></table></figure>
+
+<p><code>D05local</code>，编译开始前执行，用于更新仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw buster main&quot; &gt;&gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/apt/preferences.d/local-pin-900&lt;&lt;EOF</span><br><span class="line">Package: *</span><br><span class="line">Pin: release v=2.0</span><br><span class="line">Pin-Priority: 2000</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">apt-get -y update</span><br><span class="line"><span class="meta">#</span><span class="bash">apt-get -y dist-upgrade --allow-downgrades</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>F01login</code>，<code>pbuilder login</code>时执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/sw-64-deb-adapt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1037,176 +1219,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Pbuilder-Users-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/2021/12/12/Pbuilder-Users-Manual/" class="post-title-link" itemprop="url">Pbuilder User's Manual</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-12 20:11:15 / 修改时间：20:10:56" itemprop="dateCreated datePublished" datetime="2021-12-12T20:11:15+08:00">2021-12-12</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>pbuilder(personal Debian package builder)是debian环境下维护debian包的专业工具，能够为每个deb包创建纯净的编译构建环境，自动解析和安装依赖包，并且不污染宿主系统。</p>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Pbuilder安装后，相关的脚本包括<code>/usr/sbin/pbuilder</code>、<code>/usr/lib/pbuilder/*</code>、<code>/usr/bin/pdebuild</code>。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/pbuilder/</span><br><span class="line">├── pbuilder-apt-config</span><br><span class="line">├── pbuilder-buildpackage</span><br><span class="line">├── pbuilder-buildpackage-funcs</span><br><span class="line">├── pbuilder-checkparams</span><br><span class="line">├── pbuilder-createbuildenv</span><br><span class="line">├── pbuilder-loadconfig</span><br><span class="line">├── pbuilder-modules</span><br><span class="line">├── pbuilder-runhooks</span><br><span class="line">├── pbuilder-satisfydepends -&gt; pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-apt</span><br><span class="line">├── pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-checkparams</span><br><span class="line">├── pbuilder-satisfydepends-classic</span><br><span class="line">├── pbuilder-satisfydepends-experimental</span><br><span class="line">├── pbuilder-satisfydepends-funcs</span><br><span class="line">├── pbuilder-satisfydepends-gdebi</span><br><span class="line">├── pbuilder-unshare-wrapper</span><br><span class="line">├── pbuilder-updatebuildenv</span><br><span class="line">├── pdebuild-checkparams</span><br><span class="line">└── pdebuild-internal</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>根据<code>/usr/lib/pbuilder/pbuilder-loadconfig</code>可知，<code>pbuilder</code>配置文件共有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/.pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
-<p>常用配置内容如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://mirrors.163.com/debian</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p>其中<code>DISTRIBUTION</code>的值对应<code>debootstrap</code>在<code>/usr/share/debootstrap/</code>目录下的脚本。</p>
-<p>注：申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现仓库没有签名而无法生成<code>base.tgz</code>的问题。</p>
-<h3 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h3><p><code>Pbuilder</code>使用时相关的临时目录是<code>/var/cache/pbuilder</code>，相关文件如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">简介</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>base.tgz</code></td>
-<td align="center">由<code>pbuilder create</code>生成的编译构建环境</td>
-</tr>
-<tr>
-<td align="center"><code>aptcache</code></td>
-<td align="center">存放编译构建时下载的deb包</td>
-</tr>
-<tr>
-<td align="center"><code>build</code></td>
-<td align="center">编译构建时的环境，由<code>base.tgz</code>解压生成</td>
-</tr>
-<tr>
-<td align="center"><code>result</code></td>
-<td align="center">存放编译构建生成的deb包及相关文件</td>
-</tr>
-</tbody></table>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><ol>
-<li>在<code>~</code>目录下，新建<code>.pbuilderrc</code>配置文件或者使用默认配置</li>
-<li>使用<code>pbuild create</code>创建纯净的编译构建环境，可以通过参数指定所要模拟的debian环境版本</li>
-<li>使用<code>apt-get source</code>下载目标deb包的src包</li>
-<li>使用<code>pbuilder build</code>编译目标源码包，参数为src包的dsc文件</li>
-<li>编译成功后生成的文件位于<code>/var/cahce/pbuilder/result</code></li>
-</ol>
-<h2 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h2><table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">用途</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>create</code></td>
-<td align="center">创建指定debian发行版的编译构建环境，最终会打包为<code>base.tgz</code>。</td>
-</tr>
-<tr>
-<td align="center"><code>build</code></td>
-<td align="center">编译指定源码包，后接dsc-file指定源码包</td>
-</tr>
-<tr>
-<td align="center"><code>clean</code></td>
-<td align="center">清空<code>BUILDPALACE</code>和<code>APTCACHE</code>中的内容</td>
-</tr>
-<tr>
-<td align="center"><code>login</code></td>
-<td align="center">chroot到<code>base.tgz</code>构建编译环境中，可带<code>--save-after-login</code>配置<code>base.tgz</code>并保存</td>
-</tr>
-<tr>
-<td align="center"><code>update</code></td>
-<td align="center">更新<code>base.tgz</code></td>
-</tr>
-</tbody></table>
-<h2 id="一些技巧"><a href="#一些技巧" class="headerlink" title="一些技巧"></a>一些技巧</h2><h3 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h3><p>可以通过<code>man 8 pbuilder</code>查看hooks的相关介绍，<code>pbuilder</code>提供的一些样例位于<code>/usr/share/doc/pbuilder/examples</code>，hooks脚本都需要有执行权限。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/doc/pbuilder/examples/</span><br><span class="line">├── B20autopkgtest</span><br><span class="line">├── B90lintian</span><br><span class="line">├── B90list-missing</span><br><span class="line">├── B91debc</span><br><span class="line">├── B91dpkg-i</span><br><span class="line">├── B92test-pkg</span><br><span class="line">├── C10shell</span><br><span class="line">├── C11screen</span><br><span class="line">├── D10tmp</span><br><span class="line">├── D20addnonfree</span><br><span class="line">├── D65various-compiler-support</span><br><span class="line">├── D80no-man-db-rebuild</span><br><span class="line">├── D90chrootmemo</span><br></pre></td></tr></table></figure>
-
-<p>hooks命名与执行顺序对应的关系如下，摘自<code>man 8 pbuilder</code>：</p>
-<table>
-<thead>
-<tr>
-<th align="center">命名</th>
-<th align="center">执行顺序</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">A_</td>
-<td align="center">It is executed before build starts; after unpacking the build system, and unpacking the source, and satisfying the build-dependency.</td>
-</tr>
-<tr>
-<td align="center">B_</td>
-<td align="center">It is executed after build system finishes building,successfully,before copying back the build result.</td>
-</tr>
-<tr>
-<td align="center">C_</td>
-<td align="center">It is executed after build failure, before cleanup.</td>
-</tr>
-<tr>
-<td align="center">D_</td>
-<td align="center">It is  executed before unpacking the source inside the chroot, after setting up the chroot environment.</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Vim-Users-Manual/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1897,12 +1909,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">32k</span>
+    <span title="站点总字数">33k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">29 分钟</span>
+    <span title="站点阅读时长">30 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
