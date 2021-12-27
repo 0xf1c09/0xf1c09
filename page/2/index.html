@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/markdown/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Python-Users-Manual/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/hexo/images/avatar.gif">
@@ -169,7 +169,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/hexo/2021/11/28/markdown/" class="post-title-link" itemprop="url">Markdown基本语法</a>
+            <a href="/hexo/2021/12/12/Python-Users-Manual/" class="post-title-link" itemprop="url">Python User's Manual</a>
         </h2>
 
         <div class="post-meta">
@@ -178,8 +178,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-11-28 23:30:00" itemprop="dateCreated datePublished" datetime="2021-11-28T23:30:00+08:00">2021-11-28</time>
+              <time title="创建时间：2021-12-12 21:58:24 / 修改时间：21:58:08" itemprop="dateCreated datePublished" datetime="2021-12-12T21:58:24+08:00">2021-12-12</time>
             </span>
 
           <br>
@@ -188,14 +189,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -207,137 +208,488 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h1><p>要创建标题，请在单词或短语前面添加井号 (<code>#</code>) 。<code>#</code> 的数量代表了标题的级别。例如，添加三个 <code>#</code> 表示创建一个三级标题，并且<code>#</code>与标题间需要又空格</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1级标题</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 2级标题</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## 3级标题</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">### 4级标题</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#### 5级标题</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">##### 6级标题</span></span></span><br></pre></td></tr></table></figure>
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">arch = <span class="string">&quot;alpha&quot;</span></span><br><span class="line">_path = <span class="string">&quot;./src/&quot;</span></span><br><span class="line">libs = []</span><br><span class="line">srcUrl = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_mkdir</span>(<span class="params">path</span>):</span></span><br><span class="line">    path=path.strip()</span><br><span class="line">    path=path.rstrip(<span class="string">&quot;\\&quot;</span>)</span><br><span class="line">    isExists=os.path.exists(path)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isExists:</span><br><span class="line">        os.makedirs(path)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_loadLibs</span>():</span></span><br><span class="line">    f = <span class="built_in">open</span>(<span class="string">&quot;basetgz.txt&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        libs.append(line.strip())</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_getHTML</span>(<span class="params">url</span>):</span></span><br><span class="line">    response = requests.get(url)</span><br><span class="line">    html = response.text</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_getDep</span>(<span class="params">lib</span>):</span></span><br><span class="line">    url = <span class="string">&quot;http://packages.debian.org/source/buster/&quot;</span> + lib</span><br><span class="line">    html = _getHTML(url)</span><br><span class="line">    dom = etree.HTML(html)</span><br><span class="line">    dscUrl = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> dom.xpath(<span class="string">&#x27;/html/head/title&#x27;</span>)[<span class="number">0</span>].text != <span class="string">&quot;Debian -- Error&quot;</span>:</span><br><span class="line">        <span class="keyword">if</span> dom.xpath(<span class="string">&#x27;/html/body/div[1]/div[3]/a[3]&#x27;</span>)[<span class="number">0</span>].text != <span class="string">&quot;virtual&quot;</span>: </span><br><span class="line">            dscUrl = dom.xpath(<span class="string">&#x27;/html/body/div[2]/div[6]/table/tr[2]/td[1]/a/@href&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    srcUrl[lib] = dscUrl</span><br><span class="line">    dsc = _getHTML(dscUrl).split(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    depends = []</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> dsc:</span><br><span class="line">        <span class="keyword">if</span> re.search(<span class="string">&quot;Build-Depends:&quot;</span>, line):</span><br><span class="line">            depends = line[<span class="number">15</span>: ].split(<span class="string">&#x27;, &#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> depends</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_depParse</span>(<span class="params">dep</span>):</span></span><br><span class="line">    dep = re.sub(<span class="string">u&quot;\\(.*?\\)|\\&lt;.*?&gt;&quot;</span>, <span class="string">&quot;&quot;</span>, dep)</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&quot;\|&quot;</span>, dep):</span><br><span class="line">        deps = dep.split(<span class="string">&#x27; | &#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> _dep <span class="keyword">in</span> deps:</span><br><span class="line">            <span class="keyword">if</span> re.search(<span class="string">&quot;\[&quot;</span>, dep):</span><br><span class="line">                <span class="keyword">if</span> re.search(<span class="string">&quot;!&quot;</span>, dep):</span><br><span class="line">                    <span class="keyword">if</span> re.search(arch, _dep) == <span class="literal">None</span>:</span><br><span class="line">                        dep = _dep </span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">elif</span> re.search(arch, _dep) <span class="keyword">or</span> re.search(<span class="string">&quot;linux-any&quot;</span>, _dep):</span><br><span class="line">                    dep = _dep</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dep = _dep</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> re.search(<span class="string">&quot;\|&quot;</span>, dep):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&quot;\[&quot;</span>, dep):</span><br><span class="line">        <span class="keyword">if</span> re.search(<span class="string">&quot;!&quot;</span>, dep):</span><br><span class="line">            <span class="keyword">if</span> re.search(arch, dep) == <span class="literal">None</span>:</span><br><span class="line">                dep = dep </span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">elif</span> re.search(arch, dep) <span class="keyword">or</span> re.search(<span class="string">&quot;linux-any&quot;</span>, dep):</span><br><span class="line">            dep = dep</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&quot;\[&quot;</span>, dep):</span><br><span class="line">        dep = re.sub(<span class="string">u&quot;\\[.*?\\]&quot;</span>, <span class="string">&quot;&quot;</span>, dep)</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&quot;:&quot;</span>, dep):</span><br><span class="line">        dep = dep.split(<span class="string">&quot;:&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> dep.strip()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_pkg2src</span>(<span class="params">pkg</span>):</span></span><br><span class="line">    url = <span class="string">&#x27;https://packages.debian.org/buster/&#x27;</span> + pkg</span><br><span class="line">    html = _getHTML(url)</span><br><span class="line">    dom = etree.HTML(html)</span><br><span class="line">    srcName = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">if</span> dom.xpath(<span class="string">&#x27;/html/head/title&#x27;</span>)[<span class="number">0</span>].text != <span class="string">&quot;Debian -- Error&quot;</span>:</span><br><span class="line">        <span class="keyword">if</span> dom.xpath(<span class="string">&#x27;/html/body/div[1]/div[3]/a[3]&#x27;</span>)[<span class="number">0</span>].text != <span class="string">&quot;virtual&quot;</span>: </span><br><span class="line">            srcName = dom.xpath(<span class="string">&#x27;/html/body/div[2]/div[3]/h3[2]/a&#x27;</span>)[<span class="number">0</span>].text</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> srcName</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_deepDep</span>(<span class="params">lib</span>):</span></span><br><span class="line">    <span class="keyword">if</span> lib <span class="keyword">in</span> srcUrl:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    f = <span class="built_in">open</span>(_path + <span class="string">&quot;/&quot;</span> + lib, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">    depends = _getDep(lib)</span><br><span class="line">    <span class="keyword">if</span> depends != <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">for</span> dep <span class="keyword">in</span> depends:</span><br><span class="line">            dep = _depParse(dep)</span><br><span class="line">            <span class="keyword">if</span> dep != <span class="literal">None</span>:</span><br><span class="line">                src = _pkg2src(dep)</span><br><span class="line">                <span class="keyword">if</span> src != <span class="literal">None</span>:</span><br><span class="line">                    f.write(src)</span><br><span class="line">                    f.write(<span class="string">&quot;\r\n&quot;</span>)</span><br><span class="line">                    <span class="keyword">if</span> src <span class="keyword">not</span> <span class="keyword">in</span> srcUrl:</span><br><span class="line">                        _deepDep(src)</span><br><span class="line">    f.write(<span class="string">&quot;-\r\n&quot;</span>)</span><br><span class="line">    f.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    _loadLibs()</span><br><span class="line">    _mkdir(_path)</span><br><span class="line">    <span class="keyword">for</span> lib <span class="keyword">in</span> libs:</span><br><span class="line">        _deepDep(lib)</span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
 
-<h1 id="代码语法"><a href="#代码语法" class="headerlink" title="代码语法"></a>代码语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```shell</span><br><span class="line">```c</span><br><span class="line">```python</span><br><span class="line">```java</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Nginx-Users-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/12/Nginx-Users-Manual/" class="post-title-link" itemprop="url">Nginx User's Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-12 21:51:45 / 修改时间：21:51:38" itemprop="dateCreated datePublished" datetime="2021-12-12T21:51:45+08:00">2021-12-12</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>807</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+<p>常用于处理静态文件，索引文件以及自动索引；打开文件描述符缓冲。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="命令行安装"><a href="#命令行安装" class="headerlink" title="命令行安装"></a>命令行安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx-full</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>官方下载链接：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">nginx: download</a>，选择稳定版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.20.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>解压并执行<code>configure</code>，然后执行<code>make &amp;&amp; make install</code>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf nginx-1.20.2.tar.gz</span><br><span class="line">cd nginx-1.20.2/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make instsall</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>使用命令行安装时，<code>nginx</code>相关配置文件在<code>/etc/nginx</code>目录下，常用的配置文件有<code>nginx.conf</code>和<code>sites-enabled/default</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80; </span><br><span class="line">    listen [::]:80;</span><br><span class="line"></span><br><span class="line">    server_name example.com;</span><br><span class="line"></span><br><span class="line">    root /var/www/example.com;</span><br><span class="line">    index index.html;</span><br><span class="line"></span><br><span class="line">    location / &#123; </span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">        alias /home/user/repo;</span><br><span class="line">        autoindex on;</span><br><span class="line">        autoindex_localtime on;</span><br><span class="line">        autoindex_exact_size off;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx</span><br></pre></td></tr></table></figure>
+
+<p>关闭</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<p>重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
 
-<h2 id="shell代码块"><a href="#shell代码块" class="headerlink" title="shell代码块"></a>shell代码块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run -it debian:last bash</span></span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Vim-Users-Manual/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
 
-<h2 id="c-代码块"><a href="#c-代码块" class="headerlink" title="c 代码块"></a>c 代码块</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello, World! \n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/12/Vim-Users-Manual/" class="post-title-link" itemprop="url">Vim User's Manual</a>
+        </h2>
 
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
+              <time title="创建时间：2021-12-12 18:53:46" itemprop="dateCreated datePublished" datetime="2021-12-12T18:53:46+08:00">2021-12-12</time>
+            </span>
 
-<h2 id="python-代码块"><a href="#python-代码块" class="headerlink" title="python 代码块"></a>python 代码块</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">            <span class="keyword">if</span>( i != k ) <span class="keyword">and</span> (i != j) <span class="keyword">and</span> (j != k):</span><br><span class="line">                <span class="built_in">print</span> (i,j,k)</span><br></pre></td></tr></table></figure>
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>15k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>14 分钟</span>
+            </span>
 
-<h2 id="java代码块"><a href="#java代码块" class="headerlink" title="java代码块"></a>java代码块</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
+      
+          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br></pre></td><td class="code"><pre><span class="line">&quot;=========================================================================</span><br><span class="line">&quot;</span><br><span class="line">&quot;&quot; DesCRiption: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console</span><br><span class="line">&quot;</span><br><span class="line">&quot;&quot;=========================================================================</span><br><span class="line">syntax on &quot;自动语法高亮</span><br><span class="line">&quot;winpos 5 5          &quot; 设定窗口位置  </span><br><span class="line">&quot;set lines=40 columns=155    &quot; 设定窗口大小  </span><br><span class="line">&quot;set nu              &quot; 显示行号  </span><br><span class="line">set go=             &quot; 不要图形按钮  </span><br><span class="line">&quot;color asmanian2     &quot; 设置背景主题  </span><br><span class="line">set guifont=Courier_New:h10:cANSI   &quot; 设置字体  </span><br><span class="line">&quot;syntax on           &quot; 语法高亮  </span><br><span class="line">&quot;autocmd InsertLeave * se nocul  &quot; 用浅色高亮当前行  </span><br><span class="line">&quot;autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  </span><br><span class="line">&quot;set ruler           &quot; 显示标尺  </span><br><span class="line">set showcmd         &quot; 输入的命令显示出来，看的清楚些  </span><br><span class="line">&quot;set cmdheight=1     &quot; 命令行（在状态行下）的高度，设置为1  </span><br><span class="line">&quot;set whichwrap+=&lt;,&gt;,h,l   &quot; 允许backspace和光标键跨越行边界(不建议)  </span><br><span class="line">&quot;set scrolloff=3     &quot; 光标移动到buffer的顶部和底部时保持3行距离  </span><br><span class="line">set novisualbell    &quot; 不要闪烁(不明白)  </span><br><span class="line">&quot;set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;   &quot;状态行显示的内容  </span><br><span class="line">&quot;set laststatus=1    &quot; 启动显示状态行(1),总是显示状态行(2)  </span><br><span class="line">set foldenable      &quot; 允许折叠  </span><br><span class="line">set foldmethod=manual   &quot; 手动折叠  </span><br><span class="line">&quot;set background=dark &quot;背景使用黑色 </span><br><span class="line">set nocompatible  &quot;去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  </span><br><span class="line">&quot; 显示中文帮助</span><br><span class="line">if version &gt;= 603</span><br><span class="line">    set helplang=cn</span><br><span class="line">    set encoding=utf-8</span><br><span class="line">endif</span><br><span class="line">&quot; 设置配色方案</span><br><span class="line">&quot;colorscheme murphy</span><br><span class="line">&quot;字体 </span><br><span class="line">&quot;if (has(&quot;gui_running&quot;)) </span><br><span class="line">&quot;   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 </span><br><span class="line">&quot;endif </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936</span><br><span class="line">set termencoding=utf-8</span><br><span class="line">set encoding=utf-8</span><br><span class="line">set fileencodings=ucs-bom,utf-8,cp936</span><br><span class="line">set fileencoding=utf-8&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;新文件标题&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;新建.c,.h,.sh,.java文件，自动插入文件头 </span><br><span class="line">autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec &quot;:call SetTitle()&quot; </span><br><span class="line">&quot;&quot;定义函数SetTitle，自动插入文件头 </span><br><span class="line">func SetTitle() </span><br><span class="line">    &quot;如果文件类型为.sh文件 </span><br><span class="line">    if &amp;filetype == &#x27;sh&#x27; </span><br><span class="line">        call setline(1,&quot;\#########################################################################&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;), &quot;\# File Name: &quot;.expand(&quot;%&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+1, &quot;\# Author: 冷倾殇&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+2, &quot;\# mail: 1500428751@qq.com&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+3, &quot;\# Created Time: &quot;.strftime(&quot;%c&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+4, &quot;\#########################################################################&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+5, &quot;\#!/bin/bash&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+6, &quot;&quot;) </span><br><span class="line">    else </span><br><span class="line">        call setline(1, &quot;/*************************************************************************&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;), &quot;    &gt; File Name: &quot;.expand(&quot;%&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+1, &quot;    &gt; Author: 冷倾殇&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+2, &quot;    &gt; Mail: 1500428751@qq.com &quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+3, &quot;    &gt; Created Time: &quot;.strftime(&quot;%c&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+4, &quot; ************************************************************************/&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+5, &quot;&quot;)</span><br><span class="line">    endif</span><br><span class="line"> &quot;   if &amp;filetype == &#x27;cpp&#x27;</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+6, &quot;#include&lt;iostream&gt;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+7, &quot;using namespace std;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+8, &quot;&quot;)</span><br><span class="line"> &quot;   endif</span><br><span class="line"> &quot;   if &amp;filetype == &#x27;c&#x27;</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+6, &quot;#include&lt;stdio.h&gt;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+7, &quot;&quot;)</span><br><span class="line"> &quot;   endif</span><br><span class="line">    &quot;新建文件后，自动定位到文件末尾</span><br><span class="line">    autocmd BufNewFile * normal G</span><br><span class="line">endfunc </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;键盘命令</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nmap &lt;leader&gt;w :w!&lt;cr&gt;</span><br><span class="line">nmap &lt;leader&gt;f :find&lt;cr&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; 映射全选+复制 ctrl+a</span><br><span class="line">map &lt;C-A&gt; ggVGY</span><br><span class="line">map! &lt;C-A&gt; &lt;Esc&gt;ggVGY</span><br><span class="line">map &lt;F12&gt; gg=G</span><br><span class="line">&quot; 选中状态下 Ctrl+c 复制</span><br><span class="line">vmap &lt;C-c&gt; &quot;+y</span><br><span class="line">&quot;去空行  </span><br><span class="line">nnoremap &lt;F2&gt; :g/^\s*$/d&lt;CR&gt; </span><br><span class="line">&quot;比较文件  </span><br><span class="line">nnoremap &lt;C-F2&gt; :vert diffsplit </span><br><span class="line">&quot;新建标签  </span><br><span class="line">map &lt;M-F2&gt; :tabnew&lt;CR&gt;  </span><br><span class="line">&quot;列出当前目录文件  </span><br><span class="line">map &lt;F3&gt; :tabnew .&lt;CR&gt;  </span><br><span class="line">&quot;打开树状文件目录  </span><br><span class="line">map &lt;C-F3&gt; \be  </span><br><span class="line">&quot;C，C++ 按F5编译运行</span><br><span class="line">map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;</span><br><span class="line">func! CompileRunGcc()</span><br><span class="line">    exec &quot;w&quot;</span><br><span class="line">    if &amp;filetype == &#x27;c&#x27;</span><br><span class="line">        exec &quot;!g++ % -o %&lt;&quot;</span><br><span class="line">        exec &quot;! ./%&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;cpp&#x27;</span><br><span class="line">        exec &quot;!g++ % -o %&lt;&quot;</span><br><span class="line">        exec &quot;! ./%&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;java&#x27; </span><br><span class="line">        exec &quot;!javac %&quot; </span><br><span class="line">        exec &quot;!java %&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;sh&#x27;</span><br><span class="line">        :!./%</span><br><span class="line">    endif</span><br><span class="line">endfunc</span><br><span class="line">&quot;C,C++的调试</span><br><span class="line">map &lt;F8&gt; :call Rungdb()&lt;CR&gt;</span><br><span class="line">func! Rungdb()</span><br><span class="line">    exec &quot;w&quot;</span><br><span class="line">    exec &quot;!g++ % -g -o %&lt;&quot;</span><br><span class="line">    exec &quot;!gdb ./%&lt;&quot;</span><br><span class="line">endfunc</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;实用设置</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; 设置当文件被改动时自动载入</span><br><span class="line">set autoread</span><br><span class="line">&quot; quickfix模式</span><br><span class="line">autocmd FileType c,cpp map &lt;buffer&gt; &lt;leader&gt;&lt;space&gt; :w&lt;cr&gt;:make&lt;cr&gt;</span><br><span class="line">&quot;代码补全 </span><br><span class="line">set completeopt=preview,menu </span><br><span class="line">&quot;允许插件  </span><br><span class="line">filetype plugin on</span><br><span class="line">&quot;共享剪贴板  </span><br><span class="line">set clipboard+=unnamed </span><br><span class="line">&quot;从不备份  </span><br><span class="line">set nobackup</span><br><span class="line">&quot;make 运行</span><br><span class="line">:set makeprg=g++\ -Wall\ \ %</span><br><span class="line">&quot;自动保存</span><br><span class="line">set autowrite</span><br><span class="line">&quot;set ruler                   &quot; 打开状态栏标尺</span><br><span class="line">set cursorline              &quot; 突出显示当前行</span><br><span class="line">set magic                   &quot; 设置魔术</span><br><span class="line">set guioptions-=T           &quot; 隐藏工具栏</span><br><span class="line">set guioptions-=m           &quot; 隐藏菜单栏</span><br><span class="line">&quot;set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\</span><br><span class="line">&quot; 设置在状态行显示的信息</span><br><span class="line">set foldcolumn=0</span><br><span class="line">set foldmethod=indent </span><br><span class="line">set foldlevel=3 </span><br><span class="line">set foldenable              &quot; 开始折叠</span><br><span class="line">&quot; 不要使用vi的键盘模式，而是vim自己的</span><br><span class="line">set nocompatible</span><br><span class="line">&quot; 语法高亮</span><br><span class="line">set syntax=on</span><br><span class="line">&quot; 去掉输入错误的提示声音</span><br><span class="line">set noeb</span><br><span class="line">&quot; 在处理未保存或只读文件的时候，弹出确认</span><br><span class="line">set confirm</span><br><span class="line">&quot; 自动缩进</span><br><span class="line">set autoindent</span><br><span class="line">set cindent</span><br><span class="line">&quot; Tab键的宽度</span><br><span class="line">set tabstop=4</span><br><span class="line">&quot; 统一缩进为4</span><br><span class="line">set softtabstop=4</span><br><span class="line">set shiftwidth=4</span><br><span class="line">&quot; 不要用空格代替制表符</span><br><span class="line">set noexpandtab</span><br><span class="line">&quot; 在行和段开始处使用制表符</span><br><span class="line">set smarttab</span><br><span class="line">&quot; 显示行号</span><br><span class="line">set number</span><br><span class="line">&quot; 历史记录数</span><br><span class="line">set history=1000</span><br><span class="line">&quot;禁止生成临时文件</span><br><span class="line">set nobackup</span><br><span class="line">set noswapfile</span><br><span class="line">&quot;搜索忽略大小写</span><br><span class="line">set ignorecase</span><br><span class="line">&quot;搜索逐字符高亮</span><br><span class="line">set hlsearch</span><br><span class="line">set incsearch</span><br><span class="line">&quot;行内替换</span><br><span class="line">set gdefault</span><br><span class="line">&quot;编码设置</span><br><span class="line">set enc=utf-8</span><br><span class="line">set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936</span><br><span class="line">&quot;语言设置</span><br><span class="line">set langmenu=zh_CN.UTF-8</span><br><span class="line">set helplang=cn</span><br><span class="line">&quot; 我的状态行显示的内容（包括文件类型和解码）</span><br><span class="line">&quot;set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;</span><br><span class="line">&quot;set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]</span><br><span class="line">&quot; 总是显示状态行</span><br><span class="line">&quot;set laststatus=2</span><br><span class="line">&quot; 命令行（在状态行下）的高度，默认为1，这里是2</span><br><span class="line">set cmdheight=2</span><br><span class="line">&quot; 侦测文件类型</span><br><span class="line">filetype on</span><br><span class="line">&quot; 载入文件类型插件</span><br><span class="line">filetype plugin on</span><br><span class="line">&quot; 为特定文件类型载入相关缩进文件</span><br><span class="line">filetype indent on</span><br><span class="line">&quot; 保存全局变量</span><br><span class="line">set viminfo+=!</span><br><span class="line">&quot; 带有如下符号的单词不要被换行分割</span><br><span class="line">set iskeyword+=_,$,@,%,#,-</span><br><span class="line">&quot; 字符间插入的像素行数目</span><br><span class="line">set linespace=0</span><br><span class="line">&quot; 增强模式中的命令行自动完成操作</span><br><span class="line">set wildmenu</span><br><span class="line">&quot; 使回格键（backspace）正常处理indent, eol, start等</span><br><span class="line">set backspace=2</span><br><span class="line">&quot; 允许backspace和光标键跨越行边界</span><br><span class="line">set whichwrap+=&lt;,&gt;,h,l</span><br><span class="line">&quot; 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）</span><br><span class="line">set mouse=a</span><br><span class="line">set selection=exclusive</span><br><span class="line">set selectmode=mouse,key</span><br><span class="line">&quot; 通过使用: commands命令，告诉我们文件的哪一行被改变过</span><br><span class="line">set report=0</span><br><span class="line">&quot; 在被分割的窗口间显示空白，便于阅读</span><br><span class="line">set fillchars=vert:\ ,stl:\ ,stlnc:\</span><br><span class="line">&quot; 高亮显示匹配的括号</span><br><span class="line">set showmatch</span><br><span class="line">&quot; 匹配括号高亮的时间（单位是十分之一秒）</span><br><span class="line">set matchtime=1</span><br><span class="line">&quot; 光标移动到buffer的顶部和底部时保持3行距离</span><br><span class="line">set scrolloff=3</span><br><span class="line">&quot; 为C程序提供自动缩进</span><br><span class="line">set smartindent</span><br><span class="line">&quot; 高亮显示普通txt文件（需要txt.vim脚本）</span><br><span class="line">au BufRead,BufNewFile *  setfiletype txt</span><br><span class="line">&quot;自动补全</span><br><span class="line">:inoremap ( ()&lt;ESC&gt;i</span><br><span class="line">:inoremap ) &lt;c-r&gt;=ClosePair(&#x27;)&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap &#123; &#123;&lt;CR&gt;&#125;&lt;ESC&gt;O</span><br><span class="line">:inoremap &#125; &lt;c-r&gt;=ClosePair(&#x27;&#125;&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap [ []&lt;ESC&gt;i</span><br><span class="line">:inoremap ] &lt;c-r&gt;=ClosePair(&#x27;]&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap &quot; &quot;&quot;&lt;ESC&gt;i</span><br><span class="line">:inoremap &#x27; &#x27;&#x27;&lt;ESC&gt;i</span><br><span class="line">function! ClosePair(char)</span><br><span class="line">    if getline(&#x27;.&#x27;)[col(&#x27;.&#x27;) - 1] == a:char</span><br><span class="line">        return &quot;\&lt;Right&gt;&quot;</span><br><span class="line">    else</span><br><span class="line">        return a:char</span><br><span class="line">    endif</span><br><span class="line">endfunction</span><br><span class="line">filetype plugin indent on </span><br><span class="line">&quot;打开文件类型检测, 加了这句才可以用智能补全</span><br><span class="line">set completeopt=longest,menu</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; CTags的设定  </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">let Tlist_Sort_Type = &quot;name&quot;    &quot; 按照名称排序  </span><br><span class="line">let Tlist_Use_Right_Window = 1  &quot; 在右侧显示窗口  </span><br><span class="line">let Tlist_Compart_Format = 1    &quot; 压缩方式  </span><br><span class="line">let Tlist_Exist_OnlyWindow = 1  &quot; 如果只有一个buffer，kill窗口也kill掉buffer  </span><br><span class="line">let Tlist_File_Fold_Auto_Close = 0  &quot; 不要关闭其他文件的tags  </span><br><span class="line">let Tlist_Enable_Fold_Column = 0    &quot; 不要显示折叠树  </span><br><span class="line">autocmd FileType java set tags+=D:\tools\java\tags  </span><br><span class="line">&quot;autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags  </span><br><span class="line">&quot;let Tlist_Show_One_File=1            &quot;不同时显示多个文件的tag，只显示当前文件的</span><br><span class="line">&quot;设置tags  </span><br><span class="line">set tags=tags  </span><br><span class="line">&quot;set autochdir </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;其他东东</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;默认打开Taglist </span><br><span class="line">let Tlist_Auto_Open=1 </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; </span><br><span class="line">&quot; Tag list (ctags) </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; </span><br><span class="line">let Tlist_Ctags_Cmd = &#x27;/usr/bin/ctags&#x27; </span><br><span class="line">let Tlist_Show_One_File = 1 &quot;不同时显示多个文件的tag，只显示当前文件的 </span><br><span class="line">let Tlist_Exit_OnlyWindow = 1 &quot;如果taglist窗口是最后一个窗口，则退出vim </span><br><span class="line">let Tlist_Use_Right_Window = 1 &quot;在右侧窗口中显示taglist窗口</span><br><span class="line">&quot; minibufexpl插件的一般设置</span><br><span class="line">let g:miniBufExplMapWindowNavVim = 1</span><br><span class="line">let g:miniBufExplMapWindowNavArrows = 1</span><br><span class="line">let g:miniBufExplMapCTabSwitchBufs = 1 </span><br><span class="line">let g:miniBufExplModSelTarget = 1</span><br></pre></td></tr></table></figure>
 
-<h1 id="强调语法"><a href="#强调语法" class="headerlink" title="强调语法"></a>强调语法</h1><h2 id="粗体"><a href="#粗体" class="headerlink" title="粗体"></a>粗体</h2><p>要加粗文本，请在单词或短语的前后各添加两个星号（<code>**</code>）或下划线（<code>__</code>）。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">**这个是粗体**</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<p><strong>这个是粗体</strong></p>
-<h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h2><p>要用斜体显示文本，请在单词或短语前后添加一个星号（<code>*</code>）或下划线（<code>_</code>）。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*这个是斜体*</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p><em>这个是斜体</em></p>
-<h2 id="粗体加斜体"><a href="#粗体加斜体" class="headerlink" title="粗体加斜体"></a>粗体加斜体</h2><p>要同时用粗体和斜体突出显示文本，请在单词或短语的前后各添加三个星号(<code>***</code>)或下划线(<code>___</code>)。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">***这个是粗体加斜体***</span><br></pre></td></tr></table></figure>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Shell-Users-Manual/">
 
-<p><em><strong>这个是粗体加斜体</strong></em></p>
-<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>要用斜体显示文本，请在单词或短语前后添加一个波浪号(<code>~</code>)。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~这里想用删除线~</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
 
-<p><del>这里想用删除线</del></p>
-<h1 id="引用语法"><a href="#引用语法" class="headerlink" title="引用语法"></a>引用语法</h1><p>要创建块引用，请在段落前添加一个 <code>&gt;</code> 符号。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 读一本好书，就是在和高尚的人谈话。 ——歌德</span><br><span class="line"></span><br><span class="line">&gt; 雇用制度对工人不利，但工人根本无力摆脱这个制度。 ——阮一峰</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/12/Shell-Users-Manual/" class="post-title-link" itemprop="url">Shell User's Manual</a>
+        </h2>
 
-<p>渲染效果如下：</p>
-<blockquote>
-<p>读一本好书，就是在和高尚的人谈话。 ——歌德</p>
-</blockquote>
-<blockquote>
-<p>雇用制度对工人不利，但工人根本无力摆脱这个制度。 ——阮一峰</p>
-</blockquote>
-<h2 id="多个段落快引用"><a href="#多个段落快引用" class="headerlink" title="多个段落快引用"></a>多个段落快引用</h2><p>块引用可以包含多个段落。为段落之间的空白行添加一个 <code>&gt;</code> 符号。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Dorothy followed her through many of the beautiful rooms <span class="keyword">in</span> her castle.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br><span class="line"><span class="bash">&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</span></span><br></pre></td></tr></table></figure>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<p>渲染效果如下：</p>
-<blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
-</blockquote>
-<h2 id="嵌套块引用"><a href="#嵌套块引用" class="headerlink" title="嵌套块引用"></a>嵌套块引用</h2><p>块引用可以嵌套。在要嵌套的段落前添加一个 <code>&gt;&gt;</code> 符号。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> Dorothy followed her through many of the beautiful rooms <span class="keyword">in</span> her castle.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br><span class="line"><span class="bash">&gt;&gt; The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</span></span><br></pre></td></tr></table></figure>
+              <time title="创建时间：2021-12-12 18:53:32" itemprop="dateCreated datePublished" datetime="2021-12-12T18:53:32+08:00">2021-12-12</time>
+            </span>
 
-<p>渲染效果如下：</p>
-<blockquote>
-<p>Dorothy followed her through many of the beautiful rooms in her castle.</p>
-<blockquote>
-<p>The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.</p>
-</blockquote>
-</blockquote>
-<h2 id="带有其它元素的块引用"><a href="#带有其它元素的块引用" class="headerlink" title="带有其它元素的块引用"></a>带有其它元素的块引用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="comment">### The quarterly results look great!</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br><span class="line"><span class="bash">&gt; - Revenue was off the chart.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> - Profits were higher than ever.</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"></span></span><br><span class="line"><span class="bash">&gt;  *Everything* is going according to **plan**.</span></span><br></pre></td></tr></table></figure>
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
-<p>渲染效果如下：</p>
-<blockquote>
-<h3 id="The-quarterly-results-look-great"><a href="#The-quarterly-results-look-great" class="headerlink" title="The quarterly results look great!"></a>The quarterly results look great!</h3><ul>
-<li>Revenue was off the chart.</li>
-<li>Profits were higher than ever.</li>
-</ul>
-<p> <em>Everything</em> is going according to <strong>plan</strong>.</p>
-</blockquote>
-<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>要创建分隔线，请在单独一行上使用三个或多个星号 (<code>***</code>)、破折号 (<code>---</code>) 或下划线 (<code>___</code>) ，并且不能包含其他内容。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">---</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
+        </div>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
+      
+          
+      
+    </div>
 
-<hr>
-<hr>
-<hr>
-<h1 id="图片语法语法"><a href="#图片语法语法" class="headerlink" title="图片语法语法"></a>图片语法语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![我的图片](https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg)</span><br></pre></td></tr></table></figure>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-<p><img src="https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg" alt="我的图片"></p>
-<h1 id="链接语法"><a href="#链接语法" class="headerlink" title="链接语法"></a>链接语法</h1><p>链接文本放在中括号内，链接地址放在后面的括号中，链接title可选。</p>
-<p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个链接 [0xf1c029](http://github.com/0xf1c09/ &quot;0xf1c09&quot;)。</span><br></pre></td></tr></table></figure>
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/how-to-build-local-repository/">
 
-<p>这是一个链接 <a target="_blank" rel="noopener" href="http://github.com/0xf1c09/" title="0xf1c09">0xf1c09</a>。</p>
-<h1 id="列表语法"><a href="#列表语法" class="headerlink" title="列表语法"></a>列表语法</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- 无序列表1</span><br><span class="line">- 无序列表2</span><br><span class="line">- 无序列表3</span><br><span class="line"></span><br><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br></pre></td></tr></table></figure>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
 
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-<li>无序列表3</li>
-</ul>
-<ol>
-<li>有序列表1</li>
-<li>有序列表2</li>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/04/how-to-build-local-repository/" class="post-title-link" itemprop="url">deb仓库搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-05 02:10:07" itemprop="dateCreated datePublished" datetime="2021-12-05T02:10:07+08:00">2021-12-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>570</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="reprepro构建本地仓库"><a href="#reprepro构建本地仓库" class="headerlink" title="reprepro构建本地仓库"></a>reprepro构建本地仓库</h1><h2 id="安装reprepro"><a href="#安装reprepro" class="headerlink" title="安装reprepro"></a>安装reprepro</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install reprepro -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>创建仓库目录，然后在仓库目录下的<code>conf</code>路径中创建<code>distributions</code>文件，文件内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Origin: debian_buster</span><br><span class="line">Suite: stable</span><br><span class="line">Codename: buster</span><br><span class="line">Version: 1.0</span><br><span class="line">Architectures: arm64 mips64el sw_64 source </span><br><span class="line">Components: main contrib non-free</span><br><span class="line">Description: this is a local repo</span><br></pre></td></tr></table></figure>
+
+<h2 id="导入deb"><a href="#导入deb" class="headerlink" title="导入deb"></a>导入deb</h2><p>在仓库路径下执行<code>reprepro includedeb buster *.deb </code> 命令</p>
+<h1 id="nginx实现reprepro仓库的映射"><a href="#nginx实现reprepro仓库的映射" class="headerlink" title="nginx实现reprepro仓库的映射"></a>nginx实现reprepro仓库的映射</h1><h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nginx-full -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure>
+
+<p>修改内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location /repo&#123;</span><br><span class="line">	alias /home/user/repo;</span><br><span class="line">	autoindex on;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>出现访问权限问题时，需要修改<code>nginx.conf</code>文件，将第一行的<code>www-data</code>改为<code>root</code>或<code>user</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>修改完后，重新读取配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/04/how-to-build-debs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/04/how-to-build-debs/" class="post-title-link" itemprop="url">基于源码的deb软件包构建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-05 01:45:31" itemprop="dateCreated datePublished" datetime="2021-12-05T01:45:31+08:00">2021-12-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>安装编译相关工具<code>build-essential</code>和<code>devscripts</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential devscripts -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="基于debian仓库源码"><a href="#基于debian仓库源码" class="headerlink" title="基于debian仓库源码"></a>基于debian仓库源码</h1><p>以<code>fonts-wqy-microhei</code>为例，链接为<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/f/fonts-wqy-microhei/">fonts-wqy-microhei</a>。</p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3.1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，执行<code>dpkg-buildpackage</code>命令进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fonts-wqy-microhei-0.2.0-beta/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖"><a href="#缺少依赖" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>缺少<code>xdelta3</code>依赖，在本机使用<code>apt</code>命令安装，安装后重新编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xdelta3 -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成"><a href="#编译完成" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于ubuntu仓库源码"><a href="#基于ubuntu仓库源码" class="headerlink" title="基于ubuntu仓库源码"></a>基于ubuntu仓库源码</h1><p>以<code>elementary-xfce-icon-theme</code>为例，链接为<a target="_blank" rel="noopener" href="https://packages.ubuntu.com/impish/elementary-xfce-icon-theme">elementary-xfce-icon-theme</a>。</p>
+<h2 id="下载源码-1"><a href="#下载源码-1" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://archive.ubuntu.com/ubuntu/pool/universe/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-1"><a href="#源码编译-1" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，使用<code>dpkg-buildpackage</code>命令在本地编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd elementary-xfce-0.15.2/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖-1"><a href="#缺少依赖-1" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>安装提示中缺少的依赖，安装完成后重新开始编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install librsvg2-deb libgtk-3-dev debhelper-compat -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成-1"><a href="#编译完成-1" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于Github源码"><a href="#基于Github源码" class="headerlink" title="基于Github源码"></a>基于Github源码</h1><p>以<code>tmux</code>为例，链接为<a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/">tmux</a>。</p>
+<h2 id="下载源码-2"><a href="#下载源码-2" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用<code>git</code>下载源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tmux/tmux.git</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>git tag</code>或<code>git describe</code>查看release版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+
+<p>将源码目录修改成<code>包名-版本号</code>的格式，其中包名需要小写，然后执行<code>dh-make --createorig</code>生成<code>debian</code>目录以及<code>orig.tar.gz</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv tmux/ tmux-3.3-rc</span><br><span class="line">cd  tmux-3.3-rc/</span><br><span class="line">dh_make --createorig -sy</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-2"><a href="#源码编译-2" class="headerlink" title="源码编译"></a>源码编译</h2><p>在源码目录下执行<code>dpkg-buildpackage</code>命令在本机编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h1 id="源码拆包"><a href="#源码拆包" class="headerlink" title="源码拆包"></a>源码拆包</h1><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>如果源码包中包含标准的 <code>make install</code> 没有安装的文件，可以将文件名和目标路径写入 <code>install</code> 文件。</p>
+<p> <code>install</code> 文件每行安装一份文件，格式上先是<strong>编译目录下</strong>的文件路径，然后是一个空格，接下来是安装时的目标目录。例如，假设某个二进制文件 <code>src/bar</code>没有被默认安装，则应让 <code>install</code> 呈现成这样：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/bar /usr/bin</span><br></pre></td></tr></table></figure>
+
+<p>这意味着安装这个软件包时，将有一个二进制文件 <code>/usr/bin/bar</code>.</p>
+<h2 id="拆包案例"><a href="#拆包案例" class="headerlink" title="拆包案例"></a>拆包案例</h2><p>以<code>elementary-xfce</code>为例，链接为<a target="_blank" rel="noopener" href="http://ftp.debian.org/debian/pool/main/e/elementary-xfce/">elementary-xfce</a>。使用<code>dget</code>下载源码集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<p>首先编辑<code>debian/control</code>文件，加上<code>Package</code>及其相关配置，然后针对相应<code>Package</code>在<code>debian</code>路径中新建对应的<code>.install</code>文件</p>
+<p><code>control</code>文件新增内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Package: install-file-test</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: $&#123;misc:Depends&#125;</span><br><span class="line">Description: install-file-test</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Package</code>为源码编译后生成的<code>deb</code>包名，<code>Architecuture</code>时，<code>deb</code>包名会自动加上版本号。</p>
+<p>对应的<code>.install</code>文件名为<code>install-file-test.install</code>，内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elementary-xfce-dark/* /home/user</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，执行<code>dpkg-buildpackage</code>在本地编译源码。</p>
+<h1 id="quilt补丁工具"><a href="#quilt补丁工具" class="headerlink" title="quilt补丁工具"></a>quilt补丁工具</h1><h2 id="安装quilt工具"><a href="#安装quilt工具" class="headerlink" title="安装quilt工具"></a>安装quilt工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install quilt -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新的补丁"><a href="#创建新的补丁" class="headerlink" title="创建新的补丁"></a>创建新的补丁</h2><p>在源码路径下执行<code>quilt new</code>创建一个补丁</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt new change-build-options.patch</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>quilt add</code>将补丁应用到要修改的文件中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt add CMakeList.txt</span><br></pre></td></tr></table></figure>
+
+<p>修改文件后，执行<code>quilt refresh</code>更新<code>patch</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt patch</span><br></pre></td></tr></table></figure>
+
+<h1 id="pbuilder编译工具"><a href="#pbuilder编译工具" class="headerlink" title="pbuilder编译工具"></a>pbuilder编译工具</h1><h2 id="pbuilder工具安装"><a href="#pbuilder工具安装" class="headerlink" title="pbuilder工具安装"></a>pbuilder工具安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pbuilder -y</span><br></pre></td></tr></table></figure>
+
+<p>安装时可能需要添加仓库地址，可直接跳过。</p>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><p><code>pbuilder</code>相关的脚本有<code>/usr/sbin/pbuilder</code>，<code>/usr/lib/pbuilder/*</code>，<code>/usr/bin/pdebuild</code>。</p>
+<p>根据<code>/usr/lib/pbuilder</code>下的<code>pbuilder-loadconfig</code>脚本可知，<code>pbuilder</code>配置文件主要有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/. pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现问题。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>在<code>$HOME</code>目录里下新建<code>pbuilder</code>配置文件<code>~/.pbuilderrc</code>，配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://10.15.0.120:8081/repository/debian-proxy/</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>主要设置了<code>pbuilder</code>构建包时使用的仓库以及构建包的目标架构等。配置完成后执行<code>pbuilder create</code>创建编译构建环境，会在<code>/var/cache/pbuilder</code>路径下生成一个<code>base.tgz</code>文件。创建完成后，使用<code>pbuilder build</code>编译目标源码包，参数为<code>.dsc</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pbuilder build</span><br><span class="line">dget -du http://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.114.dsc</span><br><span class="line">pbuilder build debootstrap_1.0.114.dsc</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后，生成的<code>deb</code>包以及<code>buildinfo</code>等文件位于<code>/var/cache/pbuilder/result/</code>。</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ol>
+<li>下载的源码不包含<code>debian</code>目录时，需要先执行<code>dh_make --createorig</code>生成<code>debian</code>目录及相关文件</li>
+<li>当修改了源码内容时，需要执行<code>dpkg-source -b .</code>重新生成<code>dsc</code>文件</li>
 </ol>
-<h1 id="表格语法"><a href="#表格语法" class="headerlink" title="表格语法"></a>表格语法</h1><p>可以使用冒号来定义表格的对齐方式，如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 姓名   | 年龄 |     工作 |</span><br><span class="line">| :----- | :--: | -------: |</span><br><span class="line">| 小可爱 |  18  | 吃可爱多 |</span><br><span class="line">| 小小勇敢 |  20  | 爬棵勇敢树 |</span><br><span class="line">| 小小小机智 |  22  | 看一本机智书 |</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th align="left">姓名</th>
-<th align="center">年龄</th>
-<th align="right">工作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">小可爱</td>
-<td align="center">18</td>
-<td align="right">吃可爱多</td>
-</tr>
-<tr>
-<td align="left">小小勇敢</td>
-<td align="center">20</td>
-<td align="right">爬棵勇敢树</td>
-</tr>
-<tr>
-<td align="left">小小小机智</td>
-<td align="center">22</td>
-<td align="right">看一本机智书</td>
-</tr>
-</tbody></table>
 
       
     </div>
@@ -506,7 +858,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -543,12 +895,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">34k</span>
+    <span title="站点总字数">43k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">31 分钟</span>
+    <span title="站点阅读时长">40 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
