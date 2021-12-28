@@ -155,6 +155,929 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/18/sw-64-deb-adapt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/18/sw-64-deb-adapt/" class="post-title-link" itemprop="url">sw_64平台源码修改</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-18 09:47:18" itemprop="dateCreated datePublished" datetime="2021-12-18T09:47:18+08:00">2021-12-18</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="暂不编译"><a href="#暂不编译" class="headerlink" title="暂不编译"></a>暂不编译</h1><ol>
+<li>binutils</li>
+<li>gcc-8</li>
+<li>glibc</li>
+<li>libsemanage</li>
+<li>libsepol</li>
+<li>linux</li>
+</ol>
+<h1 id="已编译"><a href="#已编译" class="headerlink" title="已编译"></a>已编译</h1><h2 id="autotools"><a href="#autotools" class="headerlink" title="autotools"></a>autotools</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">config.*</td>
+<td align="center">添加sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="build-essential"><a href="#build-essential" class="headerlink" title="build-essential"></a>build-essential</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">list</td>
+<td align="center">libc6-dev及libc6.1-dev对应架构</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">lib/dpkg/arch.c</td>
+<td align="center">dpkg_arch_name_is_illegal</td>
+<td align="center">支持带’_’架构名称</td>
+</tr>
+<tr>
+<td align="center">scripts/Dpkg/Vendor/Debian.pm</td>
+<td align="center">拷贝/usr/share/perl5/Dpkg/Vendor/Debian.pm</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">build-aux/config.guess &amp;&amp; build-aux/config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">debian/control</td>
+<td align="center">删除libselinux相关依赖</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">删除libselinux相关</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">data/cputable</td>
+<td align="center">增加sw_64相关</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">scripts/dpkg-shlibdeps.pl</td>
+<td align="center">第913行a前面加上_</td>
+<td align="center">解决找不到.so问题</td>
+</tr>
+</tbody></table>
+<h2 id="gmp"><a href="#gmp" class="headerlink" title="gmp"></a>gmp</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">libgmp10.symbols</td>
+<td align="center">修改报错行</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">config.guess &amp;&amp; config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="gnupg2"><a href="#gnupg2" class="headerlink" title="gnupg2"></a>gnupg2</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/control</td>
+<td align="center">移除mingw相关依赖</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">移除mingw相关内容</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/control</td>
+<td align="center">移除mingw相关依赖</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">移除mingw相关内容</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="java-common"><a href="#java-common" class="headerlink" title="java-common"></a>java-common</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/java_defaults.mk</td>
+<td align="center">add sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="krb5"><a href="#krb5" class="headerlink" title="krb5"></a>krb5</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src/config/config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">src/config/config.sub</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="lapack"><a href="#lapack" class="headerlink" title="lapack"></a>lapack</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ln -s /usr/bin/ar</td>
+<td align="center">hooks A增加链接</td>
+<td align="center">系统缺失</td>
+</tr>
+<tr>
+<td align="center">ln -s /usr/bin/ranlib</td>
+<td align="center">hooks A增加链接</td>
+<td align="center">系统缺失</td>
+</tr>
+</tbody></table>
+<h2 id="libbsd"><a href="#libbsd" class="headerlink" title="libbsd"></a>libbsd</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">build-aux/config.sub</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">build-aux/config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">src/local-elf.h</td>
+<td align="center">根据alpha内容添加sw_64</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libffi-不可用"><a href="#libffi-不可用" class="headerlink" title="libffi-不可用"></a>libffi-不可用</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/changelog</td>
+<td align="center">更新版本号</td>
+<td align="center">默认版本号小于sw仓库</td>
+</tr>
+<tr>
+<td align="center">config.guess &amp;&amp; config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">configure.ac</td>
+<td align="center">根据alpha新增sw_64内容</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">src/sw_64</td>
+<td align="center">拷贝src/alpha</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">configure参数加上disable-raw-api; disable-pax_emutramp；注释LDFLAGS=”-Wl,-z,defs $(LDFLAGS)”</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libfilter-perl"><a href="#libfilter-perl" class="headerlink" title="libfilter-perl"></a>libfilter-perl</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/rules</td>
+<td align="center">跳过test</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">config.sub &amp;&amp; config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="libgc"><a href="#libgc" class="headerlink" title="libgc"></a>libgc</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">config.subs</td>
+<td align="center">拷贝sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">config.guess</td>
+<td align="center">拷贝sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">CMakeLists.txt</td>
+<td align="center">增加sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">include/gc_tiny_fl.h</td>
+<td align="center">增加sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">include/gc_config_macros.h</td>
+<td align="center">增加sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">include/private/gcconfig.h</td>
+<td align="center">增加sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="libgcrypt20"><a href="#libgcrypt20" class="headerlink" title="libgcrypt20"></a>libgcrypt20</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/control</td>
+<td align="center">移除mingw相关依赖</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">移除mingw相关内容</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libgpg-error"><a href="#libgpg-error" class="headerlink" title="libgpg-error"></a>libgpg-error</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/control</td>
+<td align="center">移除mingw相关依赖</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">移除mingw相关内容</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libogg"><a href="#libogg" class="headerlink" title="libogg"></a>libogg</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">config.guess</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">config.sub</td>
+<td align="center">拷贝宿主机上对应文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="libselinux"><a href="#libselinux" class="headerlink" title="libselinux"></a>libselinux</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src/dso.h</td>
+<td align="center">增加sw_64</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libsigsegv"><a href="#libsigsegv" class="headerlink" title="libsigsegv"></a>libsigsegv</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">configure.ac</td>
+<td align="center">288行增加sw_64</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="libuv"><a href="#libuv" class="headerlink" title="libuv"></a>libuv</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src/unix/linux-syscalls.h</td>
+<td align="center">根据alpha增加sw_64</td>
+<td align="center">适配sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="libzstd"><a href="#libzstd" class="headerlink" title="libzstd"></a>libzstd</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/usr/bin/sw_64-linux-gnu-objdump</td>
+<td align="center">链接/usr/bin/objdump</td>
+<td align="center">系统缺失</td>
+</tr>
+</tbody></table>
+<h2 id="make-dfsg"><a href="#make-dfsg" class="headerlink" title="make-dfsg"></a>make-dfsg</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/rules</td>
+<td align="center">跳过test</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="perl-openssl-defaults"><a href="#perl-openssl-defaults" class="headerlink" title="perl-openssl-defaults"></a>perl-openssl-defaults</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">/usr/bin/sw_64-linux-gnu-objdump</td>
+<td align="center">链接/usr/bin/objdump</td>
+<td align="center">系统缺失</td>
+</tr>
+</tbody></table>
+<h2 id="p11-kit"><a href="#p11-kit" class="headerlink" title="p11-kit"></a>p11-kit</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/changelog</td>
+<td align="center">更新版本号</td>
+<td align="center">默认版本号小于sw仓库</td>
+</tr>
+<tr>
+<td align="center">debian/rules</td>
+<td align="center">dh_auto_configure加上without-libffi</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">debian/control</td>
+<td align="center">删除libffi相关依赖</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="perl"><a href="#perl" class="headerlink" title="perl"></a>perl</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/changelog</td>
+<td align="center">更新版本号</td>
+<td align="center">默认版本号小于sw仓库</td>
+</tr>
+<tr>
+<td align="center">/usr/bin/sw_64-linux-gnu-strip</td>
+<td align="center">链接/usr/bin/strip</td>
+<td align="center">系统缺失</td>
+</tr>
+<tr>
+<td align="center">/usr/bin/sw_64-linux-gnu-objcopy</td>
+<td align="center">链接/usr/bin/objcopy</td>
+<td align="center">系统缺失</td>
+</tr>
+</tbody></table>
+<h2 id="sensible-utils"><a href="#sensible-utils" class="headerlink" title="sensible-utils"></a>sensible-utils</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">debian/rules</td>
+<td align="center">跳过test</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">src/basic/architecture.c</td>
+<td align="center">根据alpha新增sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">src/basic/architecture.h</td>
+<td align="center">根据alpha新增sw_64</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="speex"><a href="#speex" class="headerlink" title="speex"></a>speex</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">config.sub</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">config.guess</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="tinyxml"><a href="#tinyxml" class="headerlink" title="tinyxml"></a>tinyxml</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">ln -s /usr/bin/ar</td>
+<td align="center">在hooks A内添加ar的链接</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">build-aux/config.sub</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">build-aux/config.guess</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+<h2 id="xfonts-base"><a href="#xfonts-base" class="headerlink" title="xfonts-base"></a>xfonts-base</h2><table>
+<thead>
+<tr>
+<th align="center">修改文件</th>
+<th align="center">修改内容</th>
+<th align="center">修改原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*/config.sub</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+<tr>
+<td align="center">*/config.guess</td>
+<td align="center">拷贝机器上同名文件</td>
+<td align="center">支持sw_64</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/15/Pbuilder-Users-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/15/Pbuilder-Users-Manual/" class="post-title-link" itemprop="url">Pbuilder User's Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-15 16:10:07" itemprop="dateCreated datePublished" datetime="2021-12-15T16:10:07+08:00">2021-12-15</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>pbuilder(personal Debian package builder)是debian环境下维护debian包的专业工具，能够为每个deb包创建纯净的编译构建环境，自动解析和安装依赖包，并且不污染宿主系统。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Pbuilder安装后，相关的脚本包括<code>/usr/sbin/pbuilder</code>、<code>/usr/lib/pbuilder/*</code>、<code>/usr/bin/pdebuild</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/pbuilder/</span><br><span class="line">├── pbuilder-apt-config</span><br><span class="line">├── pbuilder-buildpackage</span><br><span class="line">├── pbuilder-buildpackage-funcs</span><br><span class="line">├── pbuilder-checkparams</span><br><span class="line">├── pbuilder-createbuildenv</span><br><span class="line">├── pbuilder-loadconfig</span><br><span class="line">├── pbuilder-modules</span><br><span class="line">├── pbuilder-runhooks</span><br><span class="line">├── pbuilder-satisfydepends -&gt; pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-apt</span><br><span class="line">├── pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-checkparams</span><br><span class="line">├── pbuilder-satisfydepends-classic</span><br><span class="line">├── pbuilder-satisfydepends-experimental</span><br><span class="line">├── pbuilder-satisfydepends-funcs</span><br><span class="line">├── pbuilder-satisfydepends-gdebi</span><br><span class="line">├── pbuilder-unshare-wrapper</span><br><span class="line">├── pbuilder-updatebuildenv</span><br><span class="line">├── pdebuild-checkparams</span><br><span class="line">└── pdebuild-internal</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>根据<code>/usr/lib/pbuilder/pbuilder-loadconfig</code>可知，<code>pbuilder</code>配置文件共有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/.pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>常用配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://mirrors.163.com/debian</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>DISTRIBUTION</code>的值对应<code>debootstrap</code>在<code>/usr/share/debootstrap/</code>目录下的脚本。</p>
+<p>注：申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现仓库没有签名而无法生成<code>base.tgz</code>的问题。</p>
+<h3 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h3><p><code>Pbuilder</code>使用时相关的临时目录是<code>/var/cache/pbuilder</code>，相关文件如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>base.tgz</code></td>
+<td align="center">由<code>pbuilder create</code>生成的编译构建环境</td>
+</tr>
+<tr>
+<td align="center"><code>aptcache</code></td>
+<td align="center">存放编译构建时下载的deb包</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译构建时的环境，由<code>base.tgz</code>解压生成</td>
+</tr>
+<tr>
+<td align="center"><code>result</code></td>
+<td align="center">存放编译构建生成的deb包及相关文件</td>
+</tr>
+</tbody></table>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><ol>
+<li>在<code>~</code>目录下，新建<code>.pbuilderrc</code>配置文件或者使用默认配置</li>
+<li>使用<code>pbuild create</code>创建纯净的编译构建环境，可以通过参数指定所要模拟的debian环境版本</li>
+<li>使用<code>apt-get source</code>下载目标deb包的src包</li>
+<li>使用<code>pbuilder build</code>编译目标源码包，参数为src包的dsc文件</li>
+<li>编译成功后生成的文件位于<code>/var/cahce/pbuilder/result</code></li>
+</ol>
+<h2 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>create</code></td>
+<td align="center">创建指定debian发行版的编译构建环境，最终会打包为<code>base.tgz</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译指定源码包，后接dsc-file指定源码包</td>
+</tr>
+<tr>
+<td align="center"><code>clean</code></td>
+<td align="center">清空<code>BUILDPALACE</code>和<code>APTCACHE</code>中的内容</td>
+</tr>
+<tr>
+<td align="center"><code>login</code></td>
+<td align="center">chroot到<code>base.tgz</code>构建编译环境中，可带<code>--save-after-login</code>配置<code>base.tgz</code>并保存</td>
+</tr>
+<tr>
+<td align="center"><code>update</code></td>
+<td align="center">更新<code>base.tgz</code></td>
+</tr>
+</tbody></table>
+<h2 id="一些技巧"><a href="#一些技巧" class="headerlink" title="一些技巧"></a>一些技巧</h2><h3 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h3><p>可以通过<code>man 8 pbuilder</code>查看hooks的相关介绍，<code>pbuilder</code>提供的一些样例位于<code>/usr/share/doc/pbuilder/examples</code>，hooks脚本都需要有执行权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/doc/pbuilder/examples/</span><br><span class="line">├── B20autopkgtest</span><br><span class="line">├── B90lintian</span><br><span class="line">├── B90list-missing</span><br><span class="line">├── B91debc</span><br><span class="line">├── B91dpkg-i</span><br><span class="line">├── B92test-pkg</span><br><span class="line">├── C10shell</span><br><span class="line">├── C11screen</span><br><span class="line">├── D10tmp</span><br><span class="line">├── D20addnonfree</span><br><span class="line">├── D65various-compiler-support</span><br><span class="line">├── D80no-man-db-rebuild</span><br><span class="line">├── D90chrootmemo</span><br></pre></td></tr></table></figure>
+
+<p>hooks命名与执行顺序对应的关系如下，摘自<code>man 8 pbuilder</code>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名</th>
+<th align="center">执行顺序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A_</td>
+<td align="center">It is executed before build starts; after unpacking the build system, and unpacking the source, and satisfying the build-dependency.</td>
+</tr>
+<tr>
+<td align="center">B_</td>
+<td align="center">It is executed after build system finishes building,successfully,before copying back the build result.</td>
+</tr>
+<tr>
+<td align="center">C_</td>
+<td align="center">It is executed after build failure, before cleanup.</td>
+</tr>
+<tr>
+<td align="center">D_</td>
+<td align="center">It is  executed before unpacking the source inside the chroot, after setting up the chroot environment.</td>
+</tr>
+</tbody></table>
+<h4 id="hooks样例"><a href="#hooks样例" class="headerlink" title="hooks样例"></a>hooks样例</h4><p><code>A01ln</code>，在编译开始前执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">ln -s /usr/bin/objdump /usr/bin/sw_64-linux-gnu-objdump</span><br><span class="line">ln -s /usr/bin/strip /usr/bin/sw_64-linux-gnu-strip</span><br><span class="line">ln -s /usr/bin/objcopy /usr/bin/sw_64-linux-gnu-objcopy</span><br><span class="line">ln -s /usr/bin/ar /usr/bin/sw_64-linux-gnu-ar</span><br><span class="line">ln -s /usr/bin/ranlib /usr/bin/sw_64-linux-gnu-ranlib</span><br></pre></td></tr></table></figure>
+
+<p><code>C10shell</code>，在编译错误时执行，方便调试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> example file to be used with --hookdir</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># invoke shell if build fails.</span></span></span><br><span class="line"></span><br><span class="line">BUILDDIR=&quot;$&#123;BUILDDIR:-/tmp/buildd&#125;&quot;</span><br><span class="line"></span><br><span class="line">apt-get install -y &quot;$&#123;APTGETOPT[@]&#125;&quot; vim less</span><br><span class="line">cd &quot;$BUILDDIR&quot;/*/debian/..</span><br><span class="line"></span><br><span class="line">/bin/bash &lt; /dev/tty &gt; /dev/tty 2&gt; /dev/tty</span><br></pre></td></tr></table></figure>
+
+<p><code>D05local</code>，编译开始前执行，用于更新仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw buster main&quot; &gt;&gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/apt/preferences.d/local-pin-900&lt;&lt;EOF</span><br><span class="line">Package: *</span><br><span class="line">Pin: release v=2.0</span><br><span class="line">Pin-Priority: 2000</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">apt-get -y update</span><br><span class="line"><span class="meta">#</span><span class="bash">apt-get -y dist-upgrade --allow-downgrades</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>F01login</code>，<code>pbuilder login</code>时执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Linux-Command-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/2021/12/12/Linux-Command-Manual/" class="post-title-link" itemprop="url">Linux Command Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-12-12 22:53:20 / 修改时间：22:53:02" itemprop="dateCreated datePublished" datetime="2021-12-12T22:53:20+08:00">2021-12-12</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>630</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><h2 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h2><h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><h2 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h2><h2 id="updatedb"><a href="#updatedb" class="headerlink" title="updatedb"></a>updatedb</h2><h2 id="which"><a href="#which" class="headerlink" title="which"></a>which</h2><h2 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h2><h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><h1 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h1><h2 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h2><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><h2 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h2><h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><h2 id="expr"><a href="#expr" class="headerlink" title="expr"></a>expr</h2><h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><h1 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h1><h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><h2 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h2><h2 id="umout"><a href="#umout" class="headerlink" title="umout"></a>umout</h2><h2 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h2><h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><h2 id="stat-1"><a href="#stat-1" class="headerlink" title="stat"></a>stat</h2><h1 id="磁盘维护"><a href="#磁盘维护" class="headerlink" title="磁盘维护"></a>磁盘维护</h1><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><h2 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h2><h2 id="mkfs"><a href="#mkfs" class="headerlink" title="mkfs"></a>mkfs</h2><h1 id="网络通讯"><a href="#网络通讯" class="headerlink" title="网络通讯"></a>网络通讯</h1><h2 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h2><h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><h2 id="httpd"><a href="#httpd" class="headerlink" title="httpd"></a>httpd</h2><h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><h2 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h2><h2 id="talk"><a href="#talk" class="headerlink" title="talk"></a>talk</h2><h2 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h2><h2 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h2><h2 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h2><h2 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h2><h1 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h1><h2 id="adduser"><a href="#adduser" class="headerlink" title="adduser"></a>adduser</h2><h2 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h2><h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><h2 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h2><h2 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h2><h2 id="newgrp"><a href="#newgrp" class="headerlink" title="newgrp"></a>newgrp</h2><h2 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h2><h2 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h2><h2 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h2><h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><h2 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h2><h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><h2 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h2><h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h2><h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><h2 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h2><h2 id="renice"><a href="#renice" class="headerlink" title="renice"></a>renice</h2><h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="procinfo"><a href="#procinfo" class="headerlink" title="procinfo"></a>procinfo</h2><h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><h2 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h2><h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><h2 id="su"><a href="#su" class="headerlink" title="su"></a>su</h2><h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><h2 id="id"><a href="#id" class="headerlink" title="id"></a>id</h2><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><h2 id="w"><a href="#w" class="headerlink" title="w"></a>w</h2><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><h2 id="whoami"><a href="#whoami" class="headerlink" title="whoami"></a>whoami</h2><h2 id="whois"><a href="#whois" class="headerlink" title="whois"></a>whois</h2><h1 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h1><h2 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h2><h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h2><h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><h2 id="chroot"><a href="#chroot" class="headerlink" title="chroot"></a>chroot</h2><h2 id="clock"><a href="#clock" class="headerlink" title="clock"></a>clock</h2><h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><h2 id="dircolors"><a href="#dircolors" class="headerlink" title="dircolors"></a>dircolors</h2><h2 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h2><h2 id="enable"><a href="#enable" class="headerlink" title="enable"></a>enable</h2><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><h2 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h2><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h2 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h2><h2 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h2><h2 id="setenv"><a href="#setenv" class="headerlink" title="setenv"></a>setenv</h2><h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><h2 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h2><h2 id="unalias"><a href="#unalias" class="headerlink" title="unalias"></a>unalias</h2><h2 id="gpasswd"><a href="#gpasswd" class="headerlink" title="gpasswd"></a>gpasswd</h2><h2 id="hwclock"><a href="#hwclock" class="headerlink" title="hwclock"></a>hwclock</h2><h1 id="备份压缩"><a href="#备份压缩" class="headerlink" title="备份压缩"></a>备份压缩</h1><h2 id="bunzip2"><a href="#bunzip2" class="headerlink" title="bunzip2"></a>bunzip2</h2><h2 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a>bzip2</h2><h2 id="gunzip"><a href="#gunzip" class="headerlink" title="gunzip"></a>gunzip</h2><h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><h2 id="zipinfo"><a href="#zipinfo" class="headerlink" title="zipinfo"></a>zipinfo</h2><h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h2 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a>poweroff</h2><h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><h2 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h2><h2 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h2><h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><h2 id="pkill"><a href="#pkill" class="headerlink" title="pkill"></a>pkill</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/Python-Users-Manual/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -858,7 +1781,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -895,12 +1818,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">48k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">40 分钟</span>
+    <span title="站点阅读时长">43 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
