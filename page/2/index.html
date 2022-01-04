@@ -155,6 +155,599 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1152/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1152/" class="post-title-link" itemprop="url">1152 Google Recruitment (20 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:28:50" itemprop="dateCreated datePublished" datetime="2021-12-31T17:28:50+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>In July 2004, Google posted on a giant billboard along Highway 101 in Silicon Valley (shown in the picture below) for recruitment. The content is super-simple, a URL consisting of the first 10-digit prime found in consecutive digits of the natural constant e. The person who could find this prime number could go to the next step in Google’s hiring process by visiting this website.</p>
+<p>The natural constant e is a well known transcendental number（超越数）. The first several digits are:  = 2.718281828459045235360287471352662497757247093699959574966967627724076630353547594571382178525166427427466391932003059921… where the 10 digits in bold are the answer to Google’s question.</p>
+<p>Now you are asked to solve a more general problem: find the first K-digit prime in consecutive digits of any given L-digit number.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. Each case first gives in a line two positive integers: L (≤ 1,000) and K (&lt; 10), which are the numbers of digits of the given number and the prime to be found, respectively. Then the L-digit number N is given in the next line.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each test case, print in a line the first K-digit prime in consecutive digits of N. If such a number does not exist, output <code>404</code> instead. Note: the leading zeroes must also be counted as part of the K digits. For example, to find the 4-digit prime in 200236, 0023 is a solution. However the first digit 2 must not be treated as a solution 0002 since the leading zeroes are not in the original number.</p>
+<p><strong>Sample Input 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20 5</span><br><span class="line">23654987725541023819</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">49877</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>Sample Input 2:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 3</span><br><span class="line">2468024680</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 2:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">404</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isprime</span><span class="params">(<span class="keyword">char</span> *num)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, K;</span><br><span class="line">	<span class="keyword">char</span> ch, str[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;K);</span><br><span class="line">	<span class="built_in">getchar</span>();</span><br><span class="line">	str[K] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		ch = <span class="built_in">getchar</span>();</span><br><span class="line">		<span class="keyword">if</span>(i&lt;K<span class="number">-1</span>)</span><br><span class="line">			str[i] = ch;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==K<span class="number">-1</span>)</span><br><span class="line">				str[i]=ch;</span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;K<span class="number">-1</span>;j++)&#123;</span><br><span class="line">					str[j] = str[j+<span class="number">1</span>];</span><br><span class="line">				&#125;</span><br><span class="line">				str[K<span class="number">-1</span>] = ch;</span><br><span class="line">			&#125;</span><br><span class="line">			k = <span class="built_in">isprime</span>(str);</span><br><span class="line">			<span class="keyword">if</span>(k)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,str);</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;404\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isprime</span><span class="params">(<span class="keyword">char</span> *num)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> i, n=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; num[i]; i++)</span><br><span class="line">		n = n*<span class="number">10</span> + num[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;=<span class="built_in">sqrt</span>(n);i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1151/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1151/" class="post-title-link" itemprop="url">1151 LCA in a Binary Tree (30 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:24:47" itemprop="dateCreated datePublished" datetime="2021-12-31T17:24:47+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants.</p>
+<p>Given any two nodes in a binary tree, you are supposed to find their LCA.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 1,000), the number of pairs of nodes to be tested; and N (≤ 10,000), the number of keys in the binary tree, respectively. In each of the following two lines, N distinct integers are given as the inorder and preorder traversal sequences of the binary tree, respectively. It is guaranteed that the binary tree can be uniquely determined by the input sequences. Then M lines follow, each contains a pair of integer keys U and V. All the keys are in the range of int.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each given pair of U and V, print in a line <code>LCA of U and V is A.</code> if the LCA is found and <code>A</code> is the key. But if <code>A</code> is one of U and V, <code>print X is an ancestor of Y.</code> where <code>X</code> is <code>A</code> and <code>Y</code> is the other node. If U or V is not found in the binary tree, print in a line <code>ERROR: U is not found.</code> or <code>ERROR: V is not found.</code> or <code>ERROR: U and V are not found.</code>.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">7 2 3 4 6 5 1 8</span><br><span class="line">5 3 7 2 6 4 8 1</span><br><span class="line">2 6</span><br><span class="line">8 1</span><br><span class="line">7 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 6 is 3.</span><br><span class="line">8 is an ancestor of 1.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> father;</span><br><span class="line">&#125;node;</span><br><span class="line"></span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; Node;</span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; _Node;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; Pre, In;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PIT</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	Pre.<span class="built_in">resize</span>(M);</span><br><span class="line">	In.<span class="built_in">resize</span>(M);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;In[i]);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;Pre[i]);</span><br><span class="line">	<span class="built_in">PIT</span>(<span class="number">0</span>, <span class="number">0</span>, M<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;j, &amp;k);</span><br><span class="line">		<span class="keyword">if</span>(!_Node[j] &amp;&amp; !_Node[k])</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;ERROR: %d and %d are not found.\n&quot;</span>, j, k);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(!_Node[j] || !_Node[k])</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;ERROR: %d is not found.\n&quot;</span>,Node[j]==<span class="number">0</span>?j:k);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">LCA</span>(j, k);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PIT</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">	_Node[Pre[root]]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=start;i&lt;end;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(Pre[root]==In[i])</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(start&lt;=i<span class="number">-1</span>)&#123;</span><br><span class="line">		Node[Pre[root+<span class="number">1</span>]]=Pre[root];</span><br><span class="line">		<span class="built_in">PIT</span>(root+<span class="number">1</span>, start, i<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i+<span class="number">1</span>&lt;=end)&#123;</span><br><span class="line">		Node[Pre[root+<span class="number">1</span>+i-start]]=Pre[root];</span><br><span class="line">		<span class="built_in">PIT</span>(root+<span class="number">1</span>+i-start, i+<span class="number">1</span>, end);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; _LCA;</span><br><span class="line">	<span class="keyword">int</span> _a, _b;</span><br><span class="line">	_a = a;</span><br><span class="line">	_b = b;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		_LCA[a]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(a==Pre[<span class="number">0</span>])</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		a=Node[a];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(_LCA[b])&#123;</span><br><span class="line">			<span class="keyword">if</span>(b==_a||b==_b)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d is an ancestor of %d.\n&quot;</span>, b, b==_a?_b:_a);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;LCA of %d and %d is %d.\n&quot;</span>,_a, _b, b);</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(b==Pre[<span class="number">0</span>])</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		b=Node[b];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1150/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1150/" class="post-title-link" itemprop="url">1150 Travelling Salesman Problem (25 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:22:31" itemprop="dateCreated datePublished" datetime="2021-12-31T17:22:31+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The “travelling salesman problem” asks the following question: “Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits each city and returns to the origin city?” It is an NP-hard problem in combinatorial optimization, important in operations research and theoretical computer science. (Quoted from “<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Travelling_salesman_problem&quot;">https://en.wikipedia.org/wiki/Travelling_salesman_problem&quot;</a>.)</p>
+<p>In this problem, you are supposed to find, from a given list of cycles, the one that is the closest to the solution of a travelling salesman problem.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line contains 2 positive integers N (2&lt;N≤200), the number of cities, and M, the number of edges in an undirected graph. Then M lines follow, each describes an edge in the format <code>City1 City2 Dist</code>, where the cities are numbered from 1 to N and the distance <code>Dist</code> is positive and is no more than 100. The next line gives a positive integer K which is the number of paths, followed by K lines of paths, each in the format:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n C1  C2  ... Cn</span><br></pre></td></tr></table></figure>
+<p>where n is the number of cities in the list, and Ci’s are the cities on a path.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each path, print in a line <code>Path X: TotalDist (Description)</code> where <code>X</code> is the index (starting from 1) of that path, <code>TotalDist</code> its total distance (if this distance does not exist, output <code>NA</code> instead), and <code>Description</code> is one of the following:</p>
+<ul>
+<li><code>TS simple cycle</code> if it is a simple cycle that visits every city;</li>
+<li><code>TS cycle</code> if it is a cycle that visits every city, but not a simple cycle;</li>
+<li><code>Not a TS cycle</code> if it is NOT a cycle that visits every city.</li>
+</ul>
+<p>Finally print in a line <code>Shortest Dist(X) = TotalDist</code> where <code>X</code> is the index of the cycle that is the closest to the solution of a travelling salesman problem, and <code>TotalDist</code> is its total distance. It is guaranteed that such a solution is unique.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">6 10</span><br><span class="line">6 2 1</span><br><span class="line">3 4 1</span><br><span class="line">1 5 1</span><br><span class="line">2 5 1</span><br><span class="line">3 1 8</span><br><span class="line">4 1 6</span><br><span class="line">1 6 1</span><br><span class="line">6 3 1</span><br><span class="line">1 2 1</span><br><span class="line">4 5 1</span><br><span class="line">7</span><br><span class="line">7 5 1 4 3 6 2 5</span><br><span class="line">7 6 1 3 4 5 2 6</span><br><span class="line">6 5 1 4 3 6 2</span><br><span class="line">9 6 2 1 6 3 4 5 2 6</span><br><span class="line">4 1 2 5 1</span><br><span class="line">7 6 1 2 5 4 3 1</span><br><span class="line">7 6 3 2 5 4 1 6</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Path 1: 11 (TS simple cycle)</span><br><span class="line">Path 2: 13 (TS simple cycle)</span><br><span class="line">Path 3: 10 (Not a TS cycle)</span><br><span class="line">Path 4: 8 (TS cycle)</span><br><span class="line">Path 5: 3 (Not a TS cycle)</span><br><span class="line">Path 6: 13 (Not a TS cycle)</span><br><span class="line">Path 7: NA (Not a TS cycle)</span><br><span class="line">Shortest Dist(4) = 8</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, l, t, N, M, K, S=<span class="number">-1</span>, Ss=<span class="number">-1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	unordered_map&lt;<span class="keyword">int</span>, unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;j, &amp;k, &amp;l);</span><br><span class="line">		m[j][k]=m[k][j]=l;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;K; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> dist=<span class="number">0</span>, start;</span><br><span class="line">		<span class="keyword">bool</span> isTS=<span class="literal">false</span>, isTSS=<span class="literal">false</span>, infinite=<span class="literal">false</span>, isCycle=<span class="literal">false</span>;</span><br><span class="line">		</span><br><span class="line">		set&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;M);</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;start);</span><br><span class="line">		j=start;</span><br><span class="line">		s.<span class="built_in">insert</span>(j);</span><br><span class="line">		<span class="keyword">for</span>(k=<span class="number">1</span>;k&lt;M;k++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;l);</span><br><span class="line">			<span class="keyword">if</span>(m[j][l]==<span class="number">0</span>)</span><br><span class="line">				infinite=<span class="literal">true</span>;</span><br><span class="line">			dist+=m[j][l];</span><br><span class="line">			j=l;</span><br><span class="line">			s.<span class="built_in">insert</span>(j);</span><br><span class="line">		&#125;</span><br><span class="line">		isCycle = (start == j)&amp;&amp;!infinite;</span><br><span class="line">		isTS = isCycle &amp;&amp; s.<span class="built_in">size</span>()==N;</span><br><span class="line">		isTSS = isTS &amp;&amp; M==N+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Path %d: &quot;</span>,i+<span class="number">1</span>);</span><br><span class="line">		<span class="keyword">if</span>(infinite)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;NA &quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, dist);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;(%s cycle)\n&quot;</span>, isTSS?<span class="string">&quot;TS simple&quot;</span>:isTS?<span class="string">&quot;TS&quot;</span>:<span class="string">&quot;Not a TS&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span>((S==<span class="number">-1</span>|| dist&lt;S) &amp;&amp; isTS )&#123;</span><br><span class="line">			S=dist;</span><br><span class="line">			Ss=i+<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Shortest Dist(%d) = %d\n&quot;</span>,Ss,S);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1149/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1149/" class="post-title-link" itemprop="url">1149 Dangerous Goods Packaging (25 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:16:41" itemprop="dateCreated datePublished" datetime="2021-12-31T17:16:41+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>When shipping goods with containers, we have to be careful not to pack some incompatible goods into the same container, or we might get ourselves in serious trouble. For example, oxidizing agent （氧化剂） must not be packed with flammable liquid （易燃液体）, or it can cause explosion.</p>
+<p>Now you are given a long list of incompatible goods, and several lists of goods to be shipped. You are supposed to tell if all the goods in a list can be packed into the same container.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives two positive integers: N (≤10^4), the number of pairs of incompatible goods, and M (≤100), the number of lists of goods to be shipped.</p>
+<p>Then two blocks follow. The first block contains N pairs of incompatible goods, each pair occupies a line; and the second one contains M lists of goods to be shipped, each list occupies a line in the following format:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">K G[1] G[2] ... G[K]</span><br></pre></td></tr></table></figure>
+<p>where <code>K</code> (≤1,000) is the number of goods and <code>G[i]</code>‘s are the IDs of the goods. To make it simple, each good is represented by a 5-digit ID number. All the numbers in a line are separated by spaces.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each shipping list, print in a line <code>Yes</code> if there are no incompatible goods in the list, or <code>No</code> if not.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">6 3</span><br><span class="line">20001 20002</span><br><span class="line">20003 20004</span><br><span class="line">20005 20006</span><br><span class="line">20003 20001</span><br><span class="line">20005 20004</span><br><span class="line">20004 20006</span><br><span class="line">4 00001 20004 00002 20003</span><br><span class="line">5 98823 20002 20003 20006 10010</span><br><span class="line">3 12345 67890 23333</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, G, K;</span><br><span class="line">	unordered_map&lt;<span class="keyword">int</span>, vector&lt;<span class="keyword">int</span>&gt;&gt; m;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;j, &amp;k);</span><br><span class="line">		m[j].<span class="built_in">push_back</span>(i+<span class="number">1</span>);</span><br><span class="line">		m[k].<span class="built_in">push_back</span>(i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; D;</span><br><span class="line">		<span class="keyword">bool</span> print=<span class="literal">false</span>;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;G);</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;G; j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;k);</span><br><span class="line">			<span class="keyword">for</span>(K=<span class="number">0</span>;K&lt;m[k].<span class="built_in">size</span>() &amp;&amp;!print;K++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(D[m[k][K]])&#123;</span><br><span class="line">					print=<span class="literal">true</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				D[m[k][K]] = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!print)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Yes\n&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1148/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1148/" class="post-title-link" itemprop="url">1148 Werewolf - Simple Version (20 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:14:03" itemprop="dateCreated datePublished" datetime="2021-12-31T17:14:03+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>898</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Input Specification:</strong></p>
+<p><strong>Output Specification:</strong></p>
+<p><strong>Sample Input 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">+3</span><br><span class="line">-4</span><br><span class="line">+5</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>Sample Input 2:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">+6</span><br><span class="line">+3</span><br><span class="line">+1</span><br><span class="line">-5</span><br><span class="line">-2</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 2 (the solution is not unique):</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 5</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>Sample Input 3:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">-3</span><br><span class="line">-4</span><br><span class="line">-5</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 3:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No Solution</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">said</span><span class="params">(N+<span class="number">1</span>)</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;said[i+<span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=i+<span class="number">1</span>;j&lt;=N;j++)&#123;</span><br><span class="line">			vector&lt;<span class="keyword">int</span>&gt; lier, <span class="built_in">id</span>(N+<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">			id[i]=id[j]=<span class="number">-1</span>;</span><br><span class="line">			<span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;N;k++)&#123;</span><br><span class="line">				M = said[k+<span class="number">1</span>]&gt;<span class="number">0</span>?<span class="number">1</span>:<span class="number">-1</span>;</span><br><span class="line">				K = M*said[k+<span class="number">1</span>];</span><br><span class="line">				<span class="keyword">if</span>(id[K]!=M)&#123;</span><br><span class="line">					lier.<span class="built_in">push_back</span>(k+<span class="number">1</span>);</span><br><span class="line">					<span class="keyword">if</span>(lier.<span class="built_in">size</span>()&gt;<span class="number">2</span>)</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(lier.<span class="built_in">size</span>()==<span class="number">2</span> &amp;&amp; id[lier[<span class="number">0</span>]]+id[lier[<span class="number">1</span>]]==<span class="number">0</span>)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, i, j);</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;No Solution\n&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1147/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1147/" class="post-title-link" itemprop="url">1147 Heaps (30 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:12:14" itemprop="dateCreated datePublished" datetime="2021-12-31T17:12:14+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>In computer science, a heap is a specialized tree-based data structure that satisfies the heap property: if P is a parent node of C, then the key (the value) of P is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the key of C. A common implementation of a heap is the binary heap, in which the tree is a complete binary tree. (Quoted from Wikipedia at <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Heap_(data_structure)">https://en.wikipedia.org/wiki/Heap_(data_structure)</a>)</p>
+<p>Your job is to tell if a given complete binary tree is a heap.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 100), the number of trees to be tested; and N (1 &lt; N ≤ 1,000), the number of keys in each tree, respectively. Then M lines follow, each contains N distinct integer keys (all in the range of int), which gives the level order traversal sequence of a complete binary tree.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each given tree, print in a line <code>Max Heap</code> if it is a max heap, or <code>Min Heap</code> for a min heap, or <code>Not Heap</code> if it is not a heap at all. Then in the next line print the tree’s postorder traversal sequence. All the numbers are separated by a space, and there must no extra space at the beginning or the end of the line.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 8</span><br><span class="line">98 72 86 60 65 12 23 50</span><br><span class="line">8 38 25 58 52 82 70 60</span><br><span class="line">10 28 15 12 34 9 8 56</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Max Heap</span><br><span class="line">50 60 65 72 12 23 86 98</span><br><span class="line">Min Heap</span><br><span class="line">60 58 52 38 82 70 25 8</span><br><span class="line">Not Heap</span><br><span class="line">56 12 34 28 9 8 15 10</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line"><span class="keyword">bool</span> Min, Max;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	v.<span class="built_in">resize</span>(M);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		Min=Max=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;M;j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;v[j]);</span><br><span class="line">			<span class="keyword">if</span>(j!=<span class="number">0</span> &amp;&amp; v[(j<span class="number">-1</span>)/<span class="number">2</span>]&gt;v[j])</span><br><span class="line">				Min=<span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">if</span>(j!=<span class="number">0</span> &amp;&amp; v[(j<span class="number">-1</span>)/<span class="number">2</span>]&lt;v[j])</span><br><span class="line">				Max=<span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%s Heap\n&quot;</span>,Max?<span class="string">&quot;Max&quot;</span>:Min?<span class="string">&quot;Min&quot;</span>:<span class="string">&quot;Not&quot;</span>);</span><br><span class="line">		<span class="built_in">print</span>(<span class="number">0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(index*<span class="number">2</span>+<span class="number">1</span>&lt;v.<span class="built_in">size</span>())</span><br><span class="line">		<span class="built_in">print</span>(index*<span class="number">2</span>+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">if</span>(index*<span class="number">2</span>+<span class="number">2</span>&lt;v.<span class="built_in">size</span>())</span><br><span class="line">		<span class="built_in">print</span>(index*<span class="number">2</span>+<span class="number">2</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d%s&quot;</span>,v[index],index==<span class="number">0</span>?<span class="string">&quot;\n&quot;</span>:<span class="string">&quot; &quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1146/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -530,533 +1123,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1142/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1142/" class="post-title-link" itemprop="url">1142 Maximal Clique (25 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 17:02:53" itemprop="dateCreated datePublished" datetime="2021-12-31T17:02:53+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>A clique is a subset of vertices of an undirected graph such that every two distinct vertices in the clique are adjacent. A maximal clique is a clique that cannot be extended by including one more adjacent vertex. (Quoted from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Clique_(graph_theory)">https://en.wikipedia.org/wiki/Clique_(graph_theory)</a>)</p>
-<p>Now it is your job to judge if a given subset of vertices can form a maximal clique.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives two positive integers Nv (≤ 200), the number of vertices in the graph, and Ne, the number of undirected edges. Then Ne lines follow, each gives a pair of vertices of an edge. The vertices are numbered from 1 to Nv.</p>
-<p>After the graph, there is another positive integer M (≤ 100). Then M lines of query follow, each first gives a positive number K (≤ Nv), then followed by a sequence of K distinct vertices. All the numbers in a line are separated by a space.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each of the M queries, print in a line <code>Yes</code> if the given subset of vertices can form a maximal clique; or if it is a clique but not a maximal clique, print <code>Not Maximal</code>; or if it is not a clique at all, print <code>Not a Clique</code>.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">8 10</span><br><span class="line">5 6</span><br><span class="line">7 8</span><br><span class="line">6 4</span><br><span class="line">3 6</span><br><span class="line">4 5</span><br><span class="line">2 3</span><br><span class="line">8 2</span><br><span class="line">2 7</span><br><span class="line">5 3</span><br><span class="line">3 4</span><br><span class="line">6</span><br><span class="line">4 5 4 3 6</span><br><span class="line">3 2 8 7</span><br><span class="line">2 2 3</span><br><span class="line">1 1</span><br><span class="line">3 4 3 6</span><br><span class="line">3 3 2 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">Not Maximal</span><br><span class="line">Not a Clique</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M, K, L;</span><br><span class="line"><span class="keyword">bool</span> e[<span class="number">202</span>][<span class="number">202</span>];</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; m;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isM</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;j, &amp;k);</span><br><span class="line">		e[j][k] = e[k][j] =<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;K);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;K; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;L);</span><br><span class="line">		v.<span class="built_in">resize</span>(L);</span><br><span class="line">		<span class="keyword">bool</span> _isC, _isM;</span><br><span class="line">		m.<span class="built_in">clear</span>();</span><br><span class="line">		_isC = <span class="literal">true</span>;</span><br><span class="line">		_isM = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;L; j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;v[j]);</span><br><span class="line">			m[v[j]]=<span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">if</span>(j!=<span class="number">0</span> &amp;&amp; _isC)&#123;</span><br><span class="line">				<span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;j; k++)&#123;</span><br><span class="line">					<span class="keyword">if</span>(!e[v[j]][v[k]])&#123;</span><br><span class="line">						_isC= <span class="literal">false</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(_isC)</span><br><span class="line">			_isM = <span class="built_in">isM</span>();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, _isM?<span class="string">&quot;Yes&quot;</span>:_isC?<span class="string">&quot;Not Maximal&quot;</span>:<span class="string">&quot;Not a Clique&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isM</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=N; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(m[i])</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">int</span> k=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;v.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(e[v[j]][i])</span><br><span class="line">				k++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(k==v.<span class="built_in">size</span>())</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1141/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1141/" class="post-title-link" itemprop="url">1141 PAT Ranking of Institutions (25 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 17:00:39" itemprop="dateCreated datePublished" datetime="2021-12-31T17:00:39+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>After each PAT, the PAT Center will announce the ranking of institutions based on their students’ performances. Now you are asked to generate the ranklist.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤10^5), which is the number of testees. Then N lines follow, each gives the information of a testee in the following format:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ID Score School</span><br></pre></td></tr></table></figure>
-<p>where <code>ID</code> is a string of 6 characters with the first one representing the test level: <code>B</code> stands for the basic level, <code>A</code> the advanced level and <code>T</code> the top level; <code>Score</code> is an integer in [0, 100]; and <code>School</code> is the institution code which is a string of no more than 6 English letters (case insensitive). Note: it is guaranteed that <code>ID</code> is unique for each testee.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each case, first print in a line the total number of institutions. Then output the ranklist of institutions in nondecreasing order of their ranks in the following format:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rank School TWS Ns</span><br></pre></td></tr></table></figure>
-<p>where <code>Rank</code> is the rank (start from 1) of the institution; <code>School</code> is the institution code (all in lower case); <code>TWS</code> is the total weighted score which is defined to be the integer part of <code>ScoreB/1.5 + ScoreA + ScoreT*1.5</code>, where <code>ScoreX</code> is the total score of the testees belong to this institution on level <code>X</code>; and <code>Ns</code> is the total number of testees who belong to this institution.<br>The institutions are ranked according to their <code>TWS</code>. If there is a tie, the institutions are supposed to have the same rank, and they shall be printed in ascending order of <code>Ns</code>. If there is still a tie, they shall be printed in alphabetical order of their codes.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">A57908 85 Au</span><br><span class="line">B57908 54 LanX</span><br><span class="line">A37487 60 au</span><br><span class="line">T28374 67 CMU</span><br><span class="line">T32486 24 hypu</span><br><span class="line">A66734 92 cmu</span><br><span class="line">B76378 71 AU</span><br><span class="line">A47780 45 lanx</span><br><span class="line">A72809 100 pku</span><br><span class="line">A03274 45 hypu</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 cmu 192 2</span><br><span class="line">1 au 192 3</span><br><span class="line">3 pku 100 1</span><br><span class="line">4 hypu 81 2</span><br><span class="line">4 lanx 81 2</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">node</span>&#123;</span></span><br><span class="line">	string school;</span><br><span class="line">	<span class="keyword">int</span> ns, scores;</span><br><span class="line">&#125;node;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, S;</span><br><span class="line">	unordered_map&lt;string, <span class="keyword">double</span>&gt; m, n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		string ID, School;</span><br><span class="line">		<span class="keyword">double</span> score;</span><br><span class="line">		cin&gt;&gt;ID&gt;&gt;score&gt;&gt;School;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;School.<span class="built_in">size</span>(); j++)</span><br><span class="line">			School[j] = <span class="built_in">tolower</span>(School[j]);</span><br><span class="line">		score = ID[<span class="number">0</span>]==<span class="string">&#x27;T&#x27;</span>?score*<span class="number">1.5</span>:ID[<span class="number">0</span>]==<span class="string">&#x27;A&#x27;</span>?score:score/<span class="number">1.5</span>;</span><br><span class="line">		m[School]+=score;</span><br><span class="line">		n[School]++;</span><br><span class="line">	&#125;</span><br><span class="line">	vector&lt;node&gt; v;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it=n.<span class="built_in">begin</span>(); it!= n.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">		v.<span class="built_in">push_back</span>(&#123;it-&gt;first,(<span class="keyword">int</span>)it-&gt;second,(<span class="keyword">int</span>)m[it-&gt;first]&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), cmp);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,v.<span class="built_in">size</span>());</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>,j=<span class="number">1</span>;i&lt;v.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">		j = i==<span class="number">0</span>?<span class="number">1</span>:v[i].scores!=v[i<span class="number">-1</span>].scores?i+<span class="number">1</span>:j;</span><br><span class="line">		cout&lt;&lt;j&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;v[i].school&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;v[i].scores&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;v[i].ns&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node a, node b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.scores==b.scores?a.ns==b.ns?a.school&lt;b.school:a.ns&lt;b.ns:a.scores&gt;b.scores;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1140/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1140/" class="post-title-link" itemprop="url">1140 Look-and-say Sequence (20 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 16:51:11" itemprop="dateCreated datePublished" datetime="2021-12-31T16:51:11+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Look-and-say sequence is a sequence of integers as the following:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D, D1, D111, D113, D11231, D112213111, ...</span><br></pre></td></tr></table></figure>
-<p>where <code>D</code> is in [0, 9] except 1. The (n+1)st number is a kind of description of the nth number. For example, the 2nd number means that there is one <code>D</code> in the 1st number, and hence it is <code>D1</code>; the 2nd number consists of one <code>D</code> (corresponding to <code>D1</code>) and one 1 (corresponding to 11), therefore the 3rd number is <code>D111</code>; or since the 4th number is <code>D113</code>, it consists of one <code>D</code>, two 1’s, and one 3, so the next number must be <code>D11231</code>. This definition works for <code>D</code> = 1 as well. Now you are supposed to calculate the Nth number in a look-and-say sequence of a given digit <code>D</code>.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case, which gives <code>D</code> (in [0, 9]) and a positive integer N (≤ 40), separated by a space.</p>
-<p><strong>Output Specification:</strong></p>
-<p>Print in a line the Nth number in a look-and-say sequence of D.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 8</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1123123111</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, L;</span><br><span class="line">	string D;</span><br><span class="line">	cin&gt;&gt;D&gt;&gt;N;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;N; i++)&#123;</span><br><span class="line">		string tempD;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;D.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j==<span class="number">0</span>)&#123;</span><br><span class="line">				tempD+=D[<span class="number">0</span>];</span><br><span class="line">				k=<span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(D[j]==D[j<span class="number">-1</span>])&#123;</span><br><span class="line">				k++;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				tempD+=<span class="built_in">to_string</span>(k);</span><br><span class="line">				tempD+=D[j];</span><br><span class="line">				k=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(j==(D.<span class="built_in">size</span>()<span class="number">-1</span>))</span><br><span class="line">				tempD+=<span class="built_in">to_string</span>(k);</span><br><span class="line">		&#125;</span><br><span class="line">		D=tempD;</span><br><span class="line">	&#125;</span><br><span class="line">		cout&lt;&lt;D&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/books-Shell-Users-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/books-Shell-Users-Manual/" class="post-title-link" itemprop="url">Shell User's Manual</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 13:59:46" itemprop="dateCreated datePublished" datetime="2021-12-31T13:59:46+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/books-Linux-Command-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/books-Linux-Command-Manual/" class="post-title-link" itemprop="url">Linux Command Manual</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 13:59:19" itemprop="dateCreated datePublished" datetime="2021-12-31T13:59:19+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>630</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h1><h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><h2 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h2><h2 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h2><h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><h2 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h2><h2 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h2><h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><h2 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h2><h2 id="updatedb"><a href="#updatedb" class="headerlink" title="updatedb"></a>updatedb</h2><h2 id="which"><a href="#which" class="headerlink" title="which"></a>which</h2><h2 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h2><h2 id="cut"><a href="#cut" class="headerlink" title="cut"></a>cut</h2><h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><h2 id="read"><a href="#read" class="headerlink" title="read"></a>read</h2><h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><h1 id="文档编辑"><a href="#文档编辑" class="headerlink" title="文档编辑"></a>文档编辑</h1><h2 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h2><h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><h2 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h2><h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><h2 id="expr"><a href="#expr" class="headerlink" title="expr"></a>expr</h2><h1 id="文件传输"><a href="#文件传输" class="headerlink" title="文件传输"></a>文件传输</h1><h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><h1 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h1><h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><h2 id="df"><a href="#df" class="headerlink" title="df"></a>df</h2><h2 id="du"><a href="#du" class="headerlink" title="du"></a>du</h2><h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><h2 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h2><h2 id="umout"><a href="#umout" class="headerlink" title="umout"></a>umout</h2><h2 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h2><h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><h2 id="stat-1"><a href="#stat-1" class="headerlink" title="stat"></a>stat</h2><h1 id="磁盘维护"><a href="#磁盘维护" class="headerlink" title="磁盘维护"></a>磁盘维护</h1><h2 id="dd"><a href="#dd" class="headerlink" title="dd"></a>dd</h2><h2 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h2><h2 id="mkfs"><a href="#mkfs" class="headerlink" title="mkfs"></a>mkfs</h2><h1 id="网络通讯"><a href="#网络通讯" class="headerlink" title="网络通讯"></a>网络通讯</h1><h2 id="telnet"><a href="#telnet" class="headerlink" title="telnet"></a>telnet</h2><h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><h2 id="httpd"><a href="#httpd" class="headerlink" title="httpd"></a>httpd</h2><h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><h2 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h2><h2 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h2><h2 id="talk"><a href="#talk" class="headerlink" title="talk"></a>talk</h2><h2 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h2><h2 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h2><h2 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h2><h2 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h2><h1 id="系统管理"><a href="#系统管理" class="headerlink" title="系统管理"></a>系统管理</h1><h2 id="adduser"><a href="#adduser" class="headerlink" title="adduser"></a>adduser</h2><h2 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h2><h2 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h2><h2 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h2><h2 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h2><h2 id="newgrp"><a href="#newgrp" class="headerlink" title="newgrp"></a>newgrp</h2><h2 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h2><h2 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h2><h2 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h2><h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><h2 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h2><h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a>sleep</h2><h2 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h2><h2 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h2><h2 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h2><h2 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h2><h2 id="renice"><a href="#renice" class="headerlink" title="renice"></a>renice</h2><h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><h2 id="procinfo"><a href="#procinfo" class="headerlink" title="procinfo"></a>procinfo</h2><h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><h2 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h2><h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><h2 id="su"><a href="#su" class="headerlink" title="su"></a>su</h2><h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><h2 id="id"><a href="#id" class="headerlink" title="id"></a>id</h2><h2 id="last"><a href="#last" class="headerlink" title="last"></a>last</h2><h2 id="w"><a href="#w" class="headerlink" title="w"></a>w</h2><h2 id="who"><a href="#who" class="headerlink" title="who"></a>who</h2><h2 id="whoami"><a href="#whoami" class="headerlink" title="whoami"></a>whoami</h2><h2 id="whois"><a href="#whois" class="headerlink" title="whois"></a>whois</h2><h1 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h1><h2 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h2><h2 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h2><h2 id="bind"><a href="#bind" class="headerlink" title="bind"></a>bind</h2><h2 id="chroot"><a href="#chroot" class="headerlink" title="chroot"></a>chroot</h2><h2 id="clock"><a href="#clock" class="headerlink" title="clock"></a>clock</h2><h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><h2 id="dircolors"><a href="#dircolors" class="headerlink" title="dircolors"></a>dircolors</h2><h2 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h2><h2 id="enable"><a href="#enable" class="headerlink" title="enable"></a>enable</h2><h2 id="export"><a href="#export" class="headerlink" title="export"></a>export</h2><h2 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h2><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><h2 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h2><h2 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h2><h2 id="setenv"><a href="#setenv" class="headerlink" title="setenv"></a>setenv</h2><h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><h2 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h2><h2 id="unalias"><a href="#unalias" class="headerlink" title="unalias"></a>unalias</h2><h2 id="gpasswd"><a href="#gpasswd" class="headerlink" title="gpasswd"></a>gpasswd</h2><h2 id="hwclock"><a href="#hwclock" class="headerlink" title="hwclock"></a>hwclock</h2><h1 id="备份压缩"><a href="#备份压缩" class="headerlink" title="备份压缩"></a>备份压缩</h1><h2 id="bunzip2"><a href="#bunzip2" class="headerlink" title="bunzip2"></a>bunzip2</h2><h2 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a>bzip2</h2><h2 id="gunzip"><a href="#gunzip" class="headerlink" title="gunzip"></a>gunzip</h2><h2 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h2><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><h2 id="zipinfo"><a href="#zipinfo" class="headerlink" title="zipinfo"></a>zipinfo</h2><h1 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h1><h2 id="poweroff"><a href="#poweroff" class="headerlink" title="poweroff"></a>poweroff</h2><h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><h2 id="xargs"><a href="#xargs" class="headerlink" title="xargs"></a>xargs</h2><h2 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h2><h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><h2 id="killall"><a href="#killall" class="headerlink" title="killall"></a>killall</h2><h2 id="pkill"><a href="#pkill" class="headerlink" title="pkill"></a>pkill</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/books-Vim-Users-Manual/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/books-Vim-Users-Manual/" class="post-title-link" itemprop="url">Vim User's Manual</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 13:49:50" itemprop="dateCreated datePublished" datetime="2021-12-31T13:49:50+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>15k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>14 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br></pre></td><td class="code"><pre><span class="line">&quot;=========================================================================</span><br><span class="line">&quot;</span><br><span class="line">&quot;&quot; DesCRiption: 适合自己使用的vimrc文件，for Linux/Windows, GUI/Console</span><br><span class="line">&quot;</span><br><span class="line">&quot;&quot;=========================================================================</span><br><span class="line">syntax on &quot;自动语法高亮</span><br><span class="line">&quot;winpos 5 5          &quot; 设定窗口位置  </span><br><span class="line">&quot;set lines=40 columns=155    &quot; 设定窗口大小  </span><br><span class="line">&quot;set nu              &quot; 显示行号  </span><br><span class="line">set go=             &quot; 不要图形按钮  </span><br><span class="line">&quot;color asmanian2     &quot; 设置背景主题  </span><br><span class="line">set guifont=Courier_New:h10:cANSI   &quot; 设置字体  </span><br><span class="line">&quot;syntax on           &quot; 语法高亮  </span><br><span class="line">&quot;autocmd InsertLeave * se nocul  &quot; 用浅色高亮当前行  </span><br><span class="line">&quot;autocmd InsertEnter * se cul    &quot; 用浅色高亮当前行  </span><br><span class="line">&quot;set ruler           &quot; 显示标尺  </span><br><span class="line">set showcmd         &quot; 输入的命令显示出来，看的清楚些  </span><br><span class="line">&quot;set cmdheight=1     &quot; 命令行（在状态行下）的高度，设置为1  </span><br><span class="line">&quot;set whichwrap+=&lt;,&gt;,h,l   &quot; 允许backspace和光标键跨越行边界(不建议)  </span><br><span class="line">&quot;set scrolloff=3     &quot; 光标移动到buffer的顶部和底部时保持3行距离  </span><br><span class="line">set novisualbell    &quot; 不要闪烁(不明白)  </span><br><span class="line">&quot;set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;   &quot;状态行显示的内容  </span><br><span class="line">&quot;set laststatus=1    &quot; 启动显示状态行(1),总是显示状态行(2)  </span><br><span class="line">set foldenable      &quot; 允许折叠  </span><br><span class="line">set foldmethod=manual   &quot; 手动折叠  </span><br><span class="line">&quot;set background=dark &quot;背景使用黑色 </span><br><span class="line">set nocompatible  &quot;去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限  </span><br><span class="line">&quot; 显示中文帮助</span><br><span class="line">if version &gt;= 603</span><br><span class="line">    set helplang=cn</span><br><span class="line">    set encoding=utf-8</span><br><span class="line">endif</span><br><span class="line">&quot; 设置配色方案</span><br><span class="line">&quot;colorscheme murphy</span><br><span class="line">&quot;字体 </span><br><span class="line">&quot;if (has(&quot;gui_running&quot;)) </span><br><span class="line">&quot;   set guifont=Bitstream\ Vera\ Sans\ Mono\ 10 </span><br><span class="line">&quot;endif </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936</span><br><span class="line">set termencoding=utf-8</span><br><span class="line">set encoding=utf-8</span><br><span class="line">set fileencodings=ucs-bom,utf-8,cp936</span><br><span class="line">set fileencoding=utf-8&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;新文件标题&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;新建.c,.h,.sh,.java文件，自动插入文件头 </span><br><span class="line">autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec &quot;:call SetTitle()&quot; </span><br><span class="line">&quot;&quot;定义函数SetTitle，自动插入文件头 </span><br><span class="line">func SetTitle() </span><br><span class="line">    &quot;如果文件类型为.sh文件 </span><br><span class="line">    if &amp;filetype == &#x27;sh&#x27; </span><br><span class="line">        call setline(1,&quot;\#########################################################################&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;), &quot;\# File Name: &quot;.expand(&quot;%&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+1, &quot;\# Author: 冷倾殇&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+2, &quot;\# mail: 1500428751@qq.com&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+3, &quot;\# Created Time: &quot;.strftime(&quot;%c&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+4, &quot;\#########################################################################&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+5, &quot;\#!/bin/bash&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+6, &quot;&quot;) </span><br><span class="line">    else </span><br><span class="line">        call setline(1, &quot;/*************************************************************************&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;), &quot;    &gt; File Name: &quot;.expand(&quot;%&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+1, &quot;    &gt; Author: 冷倾殇&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+2, &quot;    &gt; Mail: 1500428751@qq.com &quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+3, &quot;    &gt; Created Time: &quot;.strftime(&quot;%c&quot;)) </span><br><span class="line">        call append(line(&quot;.&quot;)+4, &quot; ************************************************************************/&quot;) </span><br><span class="line">        call append(line(&quot;.&quot;)+5, &quot;&quot;)</span><br><span class="line">    endif</span><br><span class="line"> &quot;   if &amp;filetype == &#x27;cpp&#x27;</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+6, &quot;#include&lt;iostream&gt;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+7, &quot;using namespace std;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+8, &quot;&quot;)</span><br><span class="line"> &quot;   endif</span><br><span class="line"> &quot;   if &amp;filetype == &#x27;c&#x27;</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+6, &quot;#include&lt;stdio.h&gt;&quot;)</span><br><span class="line"> &quot;       call append(line(&quot;.&quot;)+7, &quot;&quot;)</span><br><span class="line"> &quot;   endif</span><br><span class="line">    &quot;新建文件后，自动定位到文件末尾</span><br><span class="line">    autocmd BufNewFile * normal G</span><br><span class="line">endfunc </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;键盘命令</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nmap &lt;leader&gt;w :w!&lt;cr&gt;</span><br><span class="line">nmap &lt;leader&gt;f :find&lt;cr&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot; 映射全选+复制 ctrl+a</span><br><span class="line">map &lt;C-A&gt; ggVGY</span><br><span class="line">map! &lt;C-A&gt; &lt;Esc&gt;ggVGY</span><br><span class="line">map &lt;F12&gt; gg=G</span><br><span class="line">&quot; 选中状态下 Ctrl+c 复制</span><br><span class="line">vmap &lt;C-c&gt; &quot;+y</span><br><span class="line">&quot;去空行  </span><br><span class="line">nnoremap &lt;F2&gt; :g/^\s*$/d&lt;CR&gt; </span><br><span class="line">&quot;比较文件  </span><br><span class="line">nnoremap &lt;C-F2&gt; :vert diffsplit </span><br><span class="line">&quot;新建标签  </span><br><span class="line">map &lt;M-F2&gt; :tabnew&lt;CR&gt;  </span><br><span class="line">&quot;列出当前目录文件  </span><br><span class="line">map &lt;F3&gt; :tabnew .&lt;CR&gt;  </span><br><span class="line">&quot;打开树状文件目录  </span><br><span class="line">map &lt;C-F3&gt; \be  </span><br><span class="line">&quot;C，C++ 按F5编译运行</span><br><span class="line">map &lt;F5&gt; :call CompileRunGcc()&lt;CR&gt;</span><br><span class="line">func! CompileRunGcc()</span><br><span class="line">    exec &quot;w&quot;</span><br><span class="line">    if &amp;filetype == &#x27;c&#x27;</span><br><span class="line">        exec &quot;!g++ % -o %&lt;&quot;</span><br><span class="line">        exec &quot;! ./%&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;cpp&#x27;</span><br><span class="line">        exec &quot;!g++ % -o %&lt;&quot;</span><br><span class="line">        exec &quot;! ./%&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;java&#x27; </span><br><span class="line">        exec &quot;!javac %&quot; </span><br><span class="line">        exec &quot;!java %&lt;&quot;</span><br><span class="line">    elseif &amp;filetype == &#x27;sh&#x27;</span><br><span class="line">        :!./%</span><br><span class="line">    endif</span><br><span class="line">endfunc</span><br><span class="line">&quot;C,C++的调试</span><br><span class="line">map &lt;F8&gt; :call Rungdb()&lt;CR&gt;</span><br><span class="line">func! Rungdb()</span><br><span class="line">    exec &quot;w&quot;</span><br><span class="line">    exec &quot;!g++ % -g -o %&lt;&quot;</span><br><span class="line">    exec &quot;!gdb ./%&lt;&quot;</span><br><span class="line">endfunc</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;&quot;实用设置</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; 设置当文件被改动时自动载入</span><br><span class="line">set autoread</span><br><span class="line">&quot; quickfix模式</span><br><span class="line">autocmd FileType c,cpp map &lt;buffer&gt; &lt;leader&gt;&lt;space&gt; :w&lt;cr&gt;:make&lt;cr&gt;</span><br><span class="line">&quot;代码补全 </span><br><span class="line">set completeopt=preview,menu </span><br><span class="line">&quot;允许插件  </span><br><span class="line">filetype plugin on</span><br><span class="line">&quot;共享剪贴板  </span><br><span class="line">set clipboard+=unnamed </span><br><span class="line">&quot;从不备份  </span><br><span class="line">set nobackup</span><br><span class="line">&quot;make 运行</span><br><span class="line">:set makeprg=g++\ -Wall\ \ %</span><br><span class="line">&quot;自动保存</span><br><span class="line">set autowrite</span><br><span class="line">&quot;set ruler                   &quot; 打开状态栏标尺</span><br><span class="line">set cursorline              &quot; 突出显示当前行</span><br><span class="line">set magic                   &quot; 设置魔术</span><br><span class="line">set guioptions-=T           &quot; 隐藏工具栏</span><br><span class="line">set guioptions-=m           &quot; 隐藏菜单栏</span><br><span class="line">&quot;set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\</span><br><span class="line">&quot; 设置在状态行显示的信息</span><br><span class="line">set foldcolumn=0</span><br><span class="line">set foldmethod=indent </span><br><span class="line">set foldlevel=3 </span><br><span class="line">set foldenable              &quot; 开始折叠</span><br><span class="line">&quot; 不要使用vi的键盘模式，而是vim自己的</span><br><span class="line">set nocompatible</span><br><span class="line">&quot; 语法高亮</span><br><span class="line">set syntax=on</span><br><span class="line">&quot; 去掉输入错误的提示声音</span><br><span class="line">set noeb</span><br><span class="line">&quot; 在处理未保存或只读文件的时候，弹出确认</span><br><span class="line">set confirm</span><br><span class="line">&quot; 自动缩进</span><br><span class="line">set autoindent</span><br><span class="line">set cindent</span><br><span class="line">&quot; Tab键的宽度</span><br><span class="line">set tabstop=4</span><br><span class="line">&quot; 统一缩进为4</span><br><span class="line">set softtabstop=4</span><br><span class="line">set shiftwidth=4</span><br><span class="line">&quot; 不要用空格代替制表符</span><br><span class="line">set noexpandtab</span><br><span class="line">&quot; 在行和段开始处使用制表符</span><br><span class="line">set smarttab</span><br><span class="line">&quot; 显示行号</span><br><span class="line">set number</span><br><span class="line">&quot; 历史记录数</span><br><span class="line">set history=1000</span><br><span class="line">&quot;禁止生成临时文件</span><br><span class="line">set nobackup</span><br><span class="line">set noswapfile</span><br><span class="line">&quot;搜索忽略大小写</span><br><span class="line">set ignorecase</span><br><span class="line">&quot;搜索逐字符高亮</span><br><span class="line">set hlsearch</span><br><span class="line">set incsearch</span><br><span class="line">&quot;行内替换</span><br><span class="line">set gdefault</span><br><span class="line">&quot;编码设置</span><br><span class="line">set enc=utf-8</span><br><span class="line">set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936</span><br><span class="line">&quot;语言设置</span><br><span class="line">set langmenu=zh_CN.UTF-8</span><br><span class="line">set helplang=cn</span><br><span class="line">&quot; 我的状态行显示的内容（包括文件类型和解码）</span><br><span class="line">&quot;set statusline=%F%m%r%h%w\ [FORMAT=%&#123;&amp;ff&#125;]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %&#123;strftime(\&quot;%d/%m/%y\ -\ %H:%M\&quot;)&#125;</span><br><span class="line">&quot;set statusline=[%F]%y%r%m%*%=[Line:%l/%L,Column:%c][%p%%]</span><br><span class="line">&quot; 总是显示状态行</span><br><span class="line">&quot;set laststatus=2</span><br><span class="line">&quot; 命令行（在状态行下）的高度，默认为1，这里是2</span><br><span class="line">set cmdheight=2</span><br><span class="line">&quot; 侦测文件类型</span><br><span class="line">filetype on</span><br><span class="line">&quot; 载入文件类型插件</span><br><span class="line">filetype plugin on</span><br><span class="line">&quot; 为特定文件类型载入相关缩进文件</span><br><span class="line">filetype indent on</span><br><span class="line">&quot; 保存全局变量</span><br><span class="line">set viminfo+=!</span><br><span class="line">&quot; 带有如下符号的单词不要被换行分割</span><br><span class="line">set iskeyword+=_,$,@,%,#,-</span><br><span class="line">&quot; 字符间插入的像素行数目</span><br><span class="line">set linespace=0</span><br><span class="line">&quot; 增强模式中的命令行自动完成操作</span><br><span class="line">set wildmenu</span><br><span class="line">&quot; 使回格键（backspace）正常处理indent, eol, start等</span><br><span class="line">set backspace=2</span><br><span class="line">&quot; 允许backspace和光标键跨越行边界</span><br><span class="line">set whichwrap+=&lt;,&gt;,h,l</span><br><span class="line">&quot; 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）</span><br><span class="line">set mouse=a</span><br><span class="line">set selection=exclusive</span><br><span class="line">set selectmode=mouse,key</span><br><span class="line">&quot; 通过使用: commands命令，告诉我们文件的哪一行被改变过</span><br><span class="line">set report=0</span><br><span class="line">&quot; 在被分割的窗口间显示空白，便于阅读</span><br><span class="line">set fillchars=vert:\ ,stl:\ ,stlnc:\</span><br><span class="line">&quot; 高亮显示匹配的括号</span><br><span class="line">set showmatch</span><br><span class="line">&quot; 匹配括号高亮的时间（单位是十分之一秒）</span><br><span class="line">set matchtime=1</span><br><span class="line">&quot; 光标移动到buffer的顶部和底部时保持3行距离</span><br><span class="line">set scrolloff=3</span><br><span class="line">&quot; 为C程序提供自动缩进</span><br><span class="line">set smartindent</span><br><span class="line">&quot; 高亮显示普通txt文件（需要txt.vim脚本）</span><br><span class="line">au BufRead,BufNewFile *  setfiletype txt</span><br><span class="line">&quot;自动补全</span><br><span class="line">:inoremap ( ()&lt;ESC&gt;i</span><br><span class="line">:inoremap ) &lt;c-r&gt;=ClosePair(&#x27;)&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap &#123; &#123;&lt;CR&gt;&#125;&lt;ESC&gt;O</span><br><span class="line">:inoremap &#125; &lt;c-r&gt;=ClosePair(&#x27;&#125;&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap [ []&lt;ESC&gt;i</span><br><span class="line">:inoremap ] &lt;c-r&gt;=ClosePair(&#x27;]&#x27;)&lt;CR&gt;</span><br><span class="line">:inoremap &quot; &quot;&quot;&lt;ESC&gt;i</span><br><span class="line">:inoremap &#x27; &#x27;&#x27;&lt;ESC&gt;i</span><br><span class="line">function! ClosePair(char)</span><br><span class="line">    if getline(&#x27;.&#x27;)[col(&#x27;.&#x27;) - 1] == a:char</span><br><span class="line">        return &quot;\&lt;Right&gt;&quot;</span><br><span class="line">    else</span><br><span class="line">        return a:char</span><br><span class="line">    endif</span><br><span class="line">endfunction</span><br><span class="line">filetype plugin indent on </span><br><span class="line">&quot;打开文件类型检测, 加了这句才可以用智能补全</span><br><span class="line">set completeopt=longest,menu</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot; CTags的设定  </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">let Tlist_Sort_Type = &quot;name&quot;    &quot; 按照名称排序  </span><br><span class="line">let Tlist_Use_Right_Window = 1  &quot; 在右侧显示窗口  </span><br><span class="line">let Tlist_Compart_Format = 1    &quot; 压缩方式  </span><br><span class="line">let Tlist_Exist_OnlyWindow = 1  &quot; 如果只有一个buffer，kill窗口也kill掉buffer  </span><br><span class="line">let Tlist_File_Fold_Auto_Close = 0  &quot; 不要关闭其他文件的tags  </span><br><span class="line">let Tlist_Enable_Fold_Column = 0    &quot; 不要显示折叠树  </span><br><span class="line">autocmd FileType java set tags+=D:\tools\java\tags  </span><br><span class="line">&quot;autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags  </span><br><span class="line">&quot;let Tlist_Show_One_File=1            &quot;不同时显示多个文件的tag，只显示当前文件的</span><br><span class="line">&quot;设置tags  </span><br><span class="line">set tags=tags  </span><br><span class="line">&quot;set autochdir </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;其他东东</span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span><br><span class="line">&quot;默认打开Taglist </span><br><span class="line">let Tlist_Auto_Open=1 </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; </span><br><span class="line">&quot; Tag list (ctags) </span><br><span class="line">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; </span><br><span class="line">let Tlist_Ctags_Cmd = &#x27;/usr/bin/ctags&#x27; </span><br><span class="line">let Tlist_Show_One_File = 1 &quot;不同时显示多个文件的tag，只显示当前文件的 </span><br><span class="line">let Tlist_Exit_OnlyWindow = 1 &quot;如果taglist窗口是最后一个窗口，则退出vim </span><br><span class="line">let Tlist_Use_Right_Window = 1 &quot;在右侧窗口中显示taglist窗口</span><br><span class="line">&quot; minibufexpl插件的一般设置</span><br><span class="line">let g:miniBufExplMapWindowNavVim = 1</span><br><span class="line">let g:miniBufExplMapWindowNavArrows = 1</span><br><span class="line">let g:miniBufExplMapCTabSwitchBufs = 1 </span><br><span class="line">let g:miniBufExplModSelTarget = 1</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1126,7 +1192,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1166,7 +1232,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1175,12 +1241,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">94k</span>
+    <span title="站点总字数">105k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:26</span>
+    <span title="站点阅读时长">1:35</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
