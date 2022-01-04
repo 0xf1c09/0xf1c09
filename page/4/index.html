@@ -155,6 +155,453 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/books-Nginx-Users-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/books-Nginx-Users-Manual/" class="post-title-link" itemprop="url">Nginx User's Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 13:49:41" itemprop="dateCreated datePublished" datetime="2021-12-31T13:49:41+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>807</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
+<p>常用于处理静态文件，索引文件以及自动索引；打开文件描述符缓冲。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="命令行安装"><a href="#命令行安装" class="headerlink" title="命令行安装"></a>命令行安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx-full</span><br></pre></td></tr></table></figure>
+
+<h3 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>官方下载链接：<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">nginx: download</a>，选择稳定版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.20.2.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>解压并执行<code>configure</code>，然后执行<code>make &amp;&amp; make install</code>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf nginx-1.20.2.tar.gz</span><br><span class="line">cd nginx-1.20.2/</span><br><span class="line">./configure</span><br><span class="line">make &amp;&amp; make instsall</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>使用命令行安装时，<code>nginx</code>相关配置文件在<code>/etc/nginx</code>目录下，常用的配置文件有<code>nginx.conf</code>和<code>sites-enabled/default</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80; </span><br><span class="line">    listen [::]:80;</span><br><span class="line"></span><br><span class="line">    server_name example.com;</span><br><span class="line"></span><br><span class="line">    root /var/www/example.com;</span><br><span class="line">    index index.html;</span><br><span class="line"></span><br><span class="line">    location / &#123; </span><br><span class="line">        try_files $uri $uri/ =404;</span><br><span class="line">        alias /home/user/repo;</span><br><span class="line">        autoindex on;</span><br><span class="line">        autoindex_localtime on;</span><br><span class="line">        autoindex_exact_size off;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx</span><br></pre></td></tr></table></figure>
+
+<p>关闭</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s stop</span><br></pre></td></tr></table></figure>
+
+<p>重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -s reload</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/books-Pbuilder-Users-Manual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/books-Pbuilder-Users-Manual/" class="post-title-link" itemprop="url">Pbuilder User's Manual</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 13:49:32" itemprop="dateCreated datePublished" datetime="2021-12-31T13:49:32+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>pbuilder(personal Debian package builder)是debian环境下维护debian包的专业工具，能够为每个deb包创建纯净的编译构建环境，自动解析和安装依赖包，并且不污染宿主系统。</p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>Pbuilder安装后，相关的脚本包括<code>/usr/sbin/pbuilder</code>、<code>/usr/lib/pbuilder/*</code>、<code>/usr/bin/pdebuild</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/pbuilder/</span><br><span class="line">├── pbuilder-apt-config</span><br><span class="line">├── pbuilder-buildpackage</span><br><span class="line">├── pbuilder-buildpackage-funcs</span><br><span class="line">├── pbuilder-checkparams</span><br><span class="line">├── pbuilder-createbuildenv</span><br><span class="line">├── pbuilder-loadconfig</span><br><span class="line">├── pbuilder-modules</span><br><span class="line">├── pbuilder-runhooks</span><br><span class="line">├── pbuilder-satisfydepends -&gt; pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-apt</span><br><span class="line">├── pbuilder-satisfydepends-aptitude</span><br><span class="line">├── pbuilder-satisfydepends-checkparams</span><br><span class="line">├── pbuilder-satisfydepends-classic</span><br><span class="line">├── pbuilder-satisfydepends-experimental</span><br><span class="line">├── pbuilder-satisfydepends-funcs</span><br><span class="line">├── pbuilder-satisfydepends-gdebi</span><br><span class="line">├── pbuilder-unshare-wrapper</span><br><span class="line">├── pbuilder-updatebuildenv</span><br><span class="line">├── pdebuild-checkparams</span><br><span class="line">└── pdebuild-internal</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><p>根据<code>/usr/lib/pbuilder/pbuilder-loadconfig</code>可知，<code>pbuilder</code>配置文件共有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/.pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>常用配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://mirrors.163.com/debian</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>DISTRIBUTION</code>的值对应<code>debootstrap</code>在<code>/usr/share/debootstrap/</code>目录下的脚本。</p>
+<p>注：申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现仓库没有签名而无法生成<code>base.tgz</code>的问题。</p>
+<h3 id="缓存目录"><a href="#缓存目录" class="headerlink" title="缓存目录"></a>缓存目录</h3><p><code>Pbuilder</code>使用时相关的临时目录是<code>/var/cache/pbuilder</code>，相关文件如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>base.tgz</code></td>
+<td align="center">由<code>pbuilder create</code>生成的编译构建环境</td>
+</tr>
+<tr>
+<td align="center"><code>aptcache</code></td>
+<td align="center">存放编译构建时下载的deb包</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译构建时的环境，由<code>base.tgz</code>解压生成</td>
+</tr>
+<tr>
+<td align="center"><code>result</code></td>
+<td align="center">存放编译构建生成的deb包及相关文件</td>
+</tr>
+</tbody></table>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h2><ol>
+<li>在<code>~</code>目录下，新建<code>.pbuilderrc</code>配置文件或者使用默认配置</li>
+<li>使用<code>pbuild create</code>创建纯净的编译构建环境，可以通过参数指定所要模拟的debian环境版本</li>
+<li>使用<code>apt-get source</code>下载目标deb包的src包</li>
+<li>使用<code>pbuilder build</code>编译目标源码包，参数为src包的dsc文件</li>
+<li>编译成功后生成的文件位于<code>/var/cahce/pbuilder/result</code></li>
+</ol>
+<h2 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h2><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>create</code></td>
+<td align="center">创建指定debian发行版的编译构建环境，最终会打包为<code>base.tgz</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>build</code></td>
+<td align="center">编译指定源码包，后接dsc-file指定源码包</td>
+</tr>
+<tr>
+<td align="center"><code>clean</code></td>
+<td align="center">清空<code>BUILDPALACE</code>和<code>APTCACHE</code>中的内容</td>
+</tr>
+<tr>
+<td align="center"><code>login</code></td>
+<td align="center">chroot到<code>base.tgz</code>构建编译环境中，可带<code>--save-after-login</code>配置<code>base.tgz</code>并保存</td>
+</tr>
+<tr>
+<td align="center"><code>update</code></td>
+<td align="center">更新<code>base.tgz</code></td>
+</tr>
+</tbody></table>
+<h2 id="一些技巧"><a href="#一些技巧" class="headerlink" title="一些技巧"></a>一些技巧</h2><h3 id="hooks"><a href="#hooks" class="headerlink" title="hooks"></a>hooks</h3><p>可以通过<code>man 8 pbuilder</code>查看hooks的相关介绍，<code>pbuilder</code>提供的一些样例位于<code>/usr/share/doc/pbuilder/examples</code>，hooks脚本都需要有执行权限。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/usr/share/doc/pbuilder/examples/</span><br><span class="line">├── B20autopkgtest</span><br><span class="line">├── B90lintian</span><br><span class="line">├── B90list-missing</span><br><span class="line">├── B91debc</span><br><span class="line">├── B91dpkg-i</span><br><span class="line">├── B92test-pkg</span><br><span class="line">├── C10shell</span><br><span class="line">├── C11screen</span><br><span class="line">├── D10tmp</span><br><span class="line">├── D20addnonfree</span><br><span class="line">├── D65various-compiler-support</span><br><span class="line">├── D80no-man-db-rebuild</span><br><span class="line">├── D90chrootmemo</span><br></pre></td></tr></table></figure>
+
+<p>hooks命名与执行顺序对应的关系如下，摘自<code>man 8 pbuilder</code>：</p>
+<table>
+<thead>
+<tr>
+<th align="center">命名</th>
+<th align="center">执行顺序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">A_</td>
+<td align="center">It is executed before build starts; after unpacking the build system, and unpacking the source, and satisfying the build-dependency.</td>
+</tr>
+<tr>
+<td align="center">B_</td>
+<td align="center">It is executed after build system finishes building,successfully,before copying back the build result.</td>
+</tr>
+<tr>
+<td align="center">C_</td>
+<td align="center">It is executed after build failure, before cleanup.</td>
+</tr>
+<tr>
+<td align="center">D_</td>
+<td align="center">It is  executed before unpacking the source inside the chroot, after setting up the chroot environment.</td>
+</tr>
+</tbody></table>
+<h4 id="hooks样例"><a href="#hooks样例" class="headerlink" title="hooks样例"></a>hooks样例</h4><p><code>A01ln</code>，在编译开始前执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">ln -s /usr/bin/objdump /usr/bin/sw_64-linux-gnu-objdump</span><br><span class="line">ln -s /usr/bin/strip /usr/bin/sw_64-linux-gnu-strip</span><br><span class="line">ln -s /usr/bin/objcopy /usr/bin/sw_64-linux-gnu-objcopy</span><br><span class="line">ln -s /usr/bin/ar /usr/bin/sw_64-linux-gnu-ar</span><br><span class="line">ln -s /usr/bin/ranlib /usr/bin/sw_64-linux-gnu-ranlib</span><br></pre></td></tr></table></figure>
+
+<p><code>C10shell</code>，在编译错误时执行，方便调试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> example file to be used with --hookdir</span></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line"><span class="bash"><span class="comment"># invoke shell if build fails.</span></span></span><br><span class="line"></span><br><span class="line">BUILDDIR=&quot;$&#123;BUILDDIR:-/tmp/buildd&#125;&quot;</span><br><span class="line"></span><br><span class="line">apt-get install -y &quot;$&#123;APTGETOPT[@]&#125;&quot; vim less</span><br><span class="line">cd &quot;$BUILDDIR&quot;/*/debian/..</span><br><span class="line"></span><br><span class="line">/bin/bash &lt; /dev/tty &gt; /dev/tty 2&gt; /dev/tty</span><br></pre></td></tr></table></figure>
+
+<p><code>D05local</code>，编译开始前执行，用于更新仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw buster main&quot; &gt;&gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">cat &gt; /etc/apt/preferences.d/local-pin-900&lt;&lt;EOF</span><br><span class="line">Package: *</span><br><span class="line">Pin: release v=2.0</span><br><span class="line">Pin-Priority: 2000</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">apt-get -y update</span><br><span class="line"><span class="meta">#</span><span class="bash">apt-get -y dist-upgrade --allow-downgrades</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>F01login</code>，<code>pbuilder login</code>时执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo &quot;deb [trusted=yes] http://10.15.0.129/sw_64 buster main&quot; &gt; /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/cetc-how-to-build-debs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/cetc-how-to-build-debs/" class="post-title-link" itemprop="url">基于源码的deb软件包构建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 13:44:08" itemprop="dateCreated datePublished" datetime="2021-12-31T13:44:08+08:00">2021-12-31</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>安装编译相关工具<code>build-essential</code>和<code>devscripts</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential devscripts -y</span><br></pre></td></tr></table></figure>
+
+<h1 id="基于debian仓库源码"><a href="#基于debian仓库源码" class="headerlink" title="基于debian仓库源码"></a>基于debian仓库源码</h1><p>以<code>fonts-wqy-microhei</code>为例，链接为<a target="_blank" rel="noopener" href="http://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/f/fonts-wqy-microhei/">fonts-wqy-microhei</a>。</p>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/f/fonts-wqy-microhei/fonts-wqy-microhei_0.2.0-beta-3.1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，执行<code>dpkg-buildpackage</code>命令进行编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd fonts-wqy-microhei-0.2.0-beta/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖"><a href="#缺少依赖" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>缺少<code>xdelta3</code>依赖，在本机使用<code>apt</code>命令安装，安装后重新编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xdelta3 -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成"><a href="#编译完成" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于ubuntu仓库源码"><a href="#基于ubuntu仓库源码" class="headerlink" title="基于ubuntu仓库源码"></a>基于ubuntu仓库源码</h1><p>以<code>elementary-xfce-icon-theme</code>为例，链接为<a target="_blank" rel="noopener" href="https://packages.ubuntu.com/impish/elementary-xfce-icon-theme">elementary-xfce-icon-theme</a>。</p>
+<h2 id="下载源码-1"><a href="#下载源码-1" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用dget下载debian源码文件集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://archive.ubuntu.com/ubuntu/pool/universe/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-1"><a href="#源码编译-1" class="headerlink" title="源码编译"></a>源码编译</h2><p>进入源码解压后的目录，使用<code>dpkg-buildpackage</code>命令在本地编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd elementary-xfce-0.15.2/</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="缺少依赖-1"><a href="#缺少依赖-1" class="headerlink" title="缺少依赖"></a>缺少依赖</h2><p>安装提示中缺少的依赖，安装完成后重新开始编译</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install librsvg2-deb libgtk-3-dev debhelper-compat -y</span><br><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译完成-1"><a href="#编译完成-1" class="headerlink" title="编译完成"></a>编译完成</h2><p>编译完成，会在上一层目录中生成<code>deb</code>、<code>changes</code>、<code>buildinfo</code>等文件。</p>
+<h1 id="基于Github源码"><a href="#基于Github源码" class="headerlink" title="基于Github源码"></a>基于Github源码</h1><p>以<code>tmux</code>为例，链接为<a target="_blank" rel="noopener" href="https://github.com/tmux/tmux/">tmux</a>。</p>
+<h2 id="下载源码-2"><a href="#下载源码-2" class="headerlink" title="下载源码"></a>下载源码</h2><p>使用<code>git</code>下载源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/tmux/tmux.git</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>git tag</code>或<code>git describe</code>查看release版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
+
+<p>将源码目录修改成<code>包名-版本号</code>的格式，其中包名需要小写，然后执行<code>dh-make --createorig</code>生成<code>debian</code>目录以及<code>orig.tar.gz</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mv tmux/ tmux-3.3-rc</span><br><span class="line">cd  tmux-3.3-rc/</span><br><span class="line">dh_make --createorig -sy</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码编译-2"><a href="#源码编译-2" class="headerlink" title="源码编译"></a>源码编译</h2><p>在源码目录下执行<code>dpkg-buildpackage</code>命令在本机编译源码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage</span><br></pre></td></tr></table></figure>
+
+<h1 id="源码拆包"><a href="#源码拆包" class="headerlink" title="源码拆包"></a>源码拆包</h1><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>如果源码包中包含标准的 <code>make install</code> 没有安装的文件，可以将文件名和目标路径写入 <code>install</code> 文件。</p>
+<p> <code>install</code> 文件每行安装一份文件，格式上先是<strong>编译目录下</strong>的文件路径，然后是一个空格，接下来是安装时的目标目录。例如，假设某个二进制文件 <code>src/bar</code>没有被默认安装，则应让 <code>install</code> 呈现成这样：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/bar /usr/bin</span><br></pre></td></tr></table></figure>
+
+<p>这意味着安装这个软件包时，将有一个二进制文件 <code>/usr/bin/bar</code>.</p>
+<h2 id="拆包案例"><a href="#拆包案例" class="headerlink" title="拆包案例"></a>拆包案例</h2><p>以<code>elementary-xfce</code>为例，链接为<a target="_blank" rel="noopener" href="http://ftp.debian.org/debian/pool/main/e/elementary-xfce/">elementary-xfce</a>。使用<code>dget</code>下载源码集</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dget -ux http://ftp.debian.org/debian/pool/main/e/elementary-xfce/elementary-xfce_0.15.2-1.dsc</span><br></pre></td></tr></table></figure>
+
+<p>首先编辑<code>debian/control</code>文件，加上<code>Package</code>及其相关配置，然后针对相应<code>Package</code>在<code>debian</code>路径中新建对应的<code>.install</code>文件</p>
+<p><code>control</code>文件新增内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Package: install-file-test</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: $&#123;misc:Depends&#125;</span><br><span class="line">Description: install-file-test</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>Package</code>为源码编译后生成的<code>deb</code>包名，<code>Architecuture</code>时，<code>deb</code>包名会自动加上版本号。</p>
+<p>对应的<code>.install</code>文件名为<code>install-file-test.install</code>，内容如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">elementary-xfce-dark/* /home/user</span><br></pre></td></tr></table></figure>
+
+<p>修改完成后，执行<code>dpkg-buildpackage</code>在本地编译源码。</p>
+<h1 id="quilt补丁工具"><a href="#quilt补丁工具" class="headerlink" title="quilt补丁工具"></a>quilt补丁工具</h1><h2 id="安装quilt工具"><a href="#安装quilt工具" class="headerlink" title="安装quilt工具"></a>安装quilt工具</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install quilt -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建新的补丁"><a href="#创建新的补丁" class="headerlink" title="创建新的补丁"></a>创建新的补丁</h2><p>在源码路径下执行<code>quilt new</code>创建一个补丁</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt new change-build-options.patch</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>quilt add</code>将补丁应用到要修改的文件中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt add CMakeList.txt</span><br></pre></td></tr></table></figure>
+
+<p>修改文件后，执行<code>quilt refresh</code>更新<code>patch</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quilt patch</span><br></pre></td></tr></table></figure>
+
+<h1 id="pbuilder编译工具"><a href="#pbuilder编译工具" class="headerlink" title="pbuilder编译工具"></a>pbuilder编译工具</h1><h2 id="pbuilder工具安装"><a href="#pbuilder工具安装" class="headerlink" title="pbuilder工具安装"></a>pbuilder工具安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pbuilder -y</span><br></pre></td></tr></table></figure>
+
+<p>安装时可能需要添加仓库地址，可直接跳过。</p>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><p><code>pbuilder</code>相关的脚本有<code>/usr/sbin/pbuilder</code>，<code>/usr/lib/pbuilder/*</code>，<code>/usr/bin/pdebuild</code>。</p>
+<p>根据<code>/usr/lib/pbuilder</code>下的<code>pbuilder-loadconfig</code>脚本可知，<code>pbuilder</code>配置文件主要有三个：<code>/usr/share/pbuilder/pbuilderrc</code>，<code>/etc/pbuilderrc</code>，<code>~/. pbuilderrc</code>，其中<code>~/.pbuilderrc</code>优先级最高。</p>
+<p>申威平台下针对<code>/usr/lib/pbuilder/</code>下的<code>pbuilder-checkparams</code>和<code>pbuilder-createbuildenv</code>两个脚本进行了优化，直接只用<code>pbuilder create</code>会出现问题。</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>在<code>$HOME</code>目录里下新建<code>pbuilder</code>配置文件<code>~/.pbuilderrc</code>，配置内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIRRORSITE=http://10.15.0.120:8081/repository/debian-proxy/</span><br><span class="line">USENETWORK=yes</span><br><span class="line">DISTRIBUTION=buster</span><br><span class="line">ALLOWUNTRUCTED=yes</span><br><span class="line">DEBOOTSTRAPOPTS=(&#x27;--variant=buildd&#x27; &#x27;--no-check-gpg&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>主要设置了<code>pbuilder</code>构建包时使用的仓库以及构建包的目标架构等。配置完成后执行<code>pbuilder create</code>创建编译构建环境，会在<code>/var/cache/pbuilder</code>路径下生成一个<code>base.tgz</code>文件。创建完成后，使用<code>pbuilder build</code>编译目标源码包，参数为<code>.dsc</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pbuilder build</span><br><span class="line">dget -du http://deb.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.114.dsc</span><br><span class="line">pbuilder build debootstrap_1.0.114.dsc</span><br></pre></td></tr></table></figure>
+
+<p>编译完成后，生成的<code>deb</code>包以及<code>buildinfo</code>等文件位于<code>/var/cache/pbuilder/result/</code>。</p>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><ol>
+<li>下载的源码不包含<code>debian</code>目录时，需要先执行<code>dh_make --createorig</code>生成<code>debian</code>目录及相关文件</li>
+<li>当修改了源码内容时，需要执行<code>dpkg-source -b .</code>重新生成<code>dsc</code>文件</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/cetc-sw-64-deb-adapt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1412,312 +1859,6 @@ For each given binary search tree, you are supposed to tell if it is a legal red
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1132/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1132/" class="post-title-link" itemprop="url">1132 Cut Integer (20 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-30 17:46:45" itemprop="dateCreated datePublished" datetime="2021-12-30T17:46:45+08:00">2021-12-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Cutting an integer means to cut a K digits lone integer Z into two integers of (K/2) digits long integers A and B. For example, after cutting Z = 167334, we have A = 167 and B = 334. It is interesting to see that Z can be devided by the product of A and B, as 167334 / (167 × 334) = 3. Given an integer Z, you are supposed to test if it is such an integer.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤ 20). Then N lines follow, each gives an integer Z (10 ≤ Z &lt;2<br>31<br> ). It is guaranteed that the number of digits of Z is an even number.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each case, print a single line Yes if it is such a number, or No if not.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">167334</span><br><span class="line">2333</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
-
-<p>分析：</p>
-<ul>
-<li>分母不能为0，否则会出现浮点错误</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, l, N;</span><br><span class="line">	string z, a, b;	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		cin&gt;&gt;z;</span><br><span class="line">		j=<span class="built_in">stoi</span>(z.<span class="built_in">substr</span>(<span class="number">0</span>,z.<span class="built_in">length</span>()/<span class="number">2</span>));</span><br><span class="line">		k=<span class="built_in">stoi</span>(z.<span class="built_in">substr</span>(z.<span class="built_in">length</span>()/<span class="number">2</span>));</span><br><span class="line">		l=<span class="built_in">stoi</span>(z);</span><br><span class="line">		<span class="keyword">if</span>(j*k &amp;&amp; l%(j*k)==<span class="number">0</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;Yes\n&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1131/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1131/" class="post-title-link" itemprop="url">1131 Subway Map (30 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-30 17:46:39" itemprop="dateCreated datePublished" datetime="2021-12-30T17:46:39+08:00">2021-12-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>In the big cities, the subway systems always look so complex to the visitors. To give you some sense, the following figure shows the map of Beijing subway. Now you are supposed to help people with your computer skills! Given the starting position of your user, your task is to find the quickest way to his/her destination.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line contains a positive integer N (≤ 100), the number of subway lines. Then N lines follow, with the i-th (i=1,⋯,N) line describes the i-th subway line in the format:</p>
-<p>M S[1] S[2] … S[M]</p>
-<p>where M (≤ 100) is the number of stops, and S[i]’s (i=1,⋯,M) are the indices of the stations (the indices are 4-digit numbers from 0000 to 9999) along the line. It is guaranteed that the stations are given in the correct order – that is, the train travels between S[i] and S[i+1] (i=1,⋯,M−1) without any stop.</p>
-<p>Note: It is possible to have loops, but not self-loop (no train starts from S and stops at S without passing through another station). Each station interval belongs to a unique subway line. Although the lines may cross each other at some stations (so called “transfer stations”), no station can be the conjunction of more than 5 lines.</p>
-<p>After the description of the subway, another positive integer K (≤ 10) is given. Then K lines follow, each gives a query from your user: the two indices as the starting station and the destination, respectively.</p>
-<p>The following figure shows the sample map.<br><img src="https://images.ptausercontent.com/932c8f1b-7dd5-489d-a774-a91c1fabba7f.jpg" alt="Figure"></p>
-<p>Note: It is guaranteed that all the stations are reachable, and all the queries consist of legal station numbers.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each query, first print in a line the minimum number of stops. Then you are supposed to show the optimal path in a friendly format as the following:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Take Line#X1 from S1 to S2.</span><br><span class="line">Take Line#X2 from S2 to S3.</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<p>where <code>X</code>i’s are the line numbers and <code>S</code>i’s are the station indices. Note: Besides the starting and ending stations, only the transfer stations shall be printed.</p>
-<p>If the quickest path is not unique, output the one with the minimum number of transfers, which is guaranteed to be unique.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">7 1001 3212 1003 1204 1005 1306 7797</span><br><span class="line">9 9988 2333 1204 2006 2005 2004 2003 2302 2001</span><br><span class="line">13 3011 3812 3013 3001 1306 3003 2333 3066 3212 3008 2302 3010 3011</span><br><span class="line">4 6666 8432 4011 1306</span><br><span class="line">3</span><br><span class="line">3011 3013</span><br><span class="line">6666 2001</span><br><span class="line">2004 3001</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">Take Line#3 from 3011 to 3013.</span><br><span class="line">10</span><br><span class="line">Take Line#4 from 6666 to 1306.</span><br><span class="line">Take Line#3 from 1306 to 2302.</span><br><span class="line">Take Line#2 from 2302 to 2001.</span><br><span class="line">6</span><br><span class="line">Take Line#2 from 2004 to 1204.</span><br><span class="line">Take Line#1 from 1204 to 1306.</span><br><span class="line">Take Line#3 from 1306 to 3001.</span><br></pre></td></tr></table></figure>
-
-<p>题目大意：根据给定的地铁路线，找到两个站点间站最少且换乘少的路线</p>
-<p>分析：</p>
-<ol>
-<li>用map嵌套记录两个站点是哪条线</li>
-<li>dfs遍历找到起点和终点符合条件的路线</li>
-<li>符合条件的路线判断路线长度和换乘次数</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> startS, endS, minL, minT;</span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>, unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; um;</span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; u;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; v, road;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> node)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getT</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, l, N, M;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;M);</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;M; j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;k);</span><br><span class="line">			<span class="keyword">if</span>(j)&#123;</span><br><span class="line">				um[k][l]=um[l][k]=i;</span><br><span class="line">			&#125;</span><br><span class="line">			l=k;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;startS, &amp;endS);</span><br><span class="line">		minL=minT=<span class="number">-1</span>;</span><br><span class="line">		<span class="built_in">dfs</span>(startS);</span><br><span class="line">		<span class="built_in">print</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> node)</span></span>&#123;</span><br><span class="line">	v.<span class="built_in">push_back</span>(node);</span><br><span class="line">	u[node]=<span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> it=um[node].<span class="built_in">begin</span>(); it!=um[node].<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!u[it-&gt;first])</span><br><span class="line">			<span class="built_in">dfs</span>(it-&gt;first);</span><br><span class="line">	&#125;</span><br><span class="line">	u[v.<span class="built_in">back</span>()]=<span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">if</span>(v.<span class="built_in">back</span>()==endS)</span><br><span class="line">		<span class="built_in">update</span>();</span><br><span class="line">	v.<span class="built_in">pop_back</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(minL == <span class="number">-1</span> || v.<span class="built_in">size</span>() &lt; minL || (minL==v.<span class="built_in">size</span>() &amp;&amp; <span class="built_in">getT</span>()&lt;minT))&#123;</span><br><span class="line">		minL=v.<span class="built_in">size</span>();</span><br><span class="line">		minT=<span class="built_in">getT</span>();</span><br><span class="line">		road=v;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getT</span><span class="params">()</span></span>&#123;</span><br><span class="line">	set&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">	<span class="keyword">int</span> temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i)</span><br><span class="line">			s.<span class="built_in">insert</span>(um[v[i]][temp]);</span><br><span class="line">		temp=v[i];	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s.<span class="built_in">size</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, (<span class="keyword">int</span>)road.<span class="built_in">size</span>()<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>, s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; s&lt;road.<span class="built_in">size</span>()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Take Line#%d from %04d to &quot;</span>, um[road[s]][road[s+<span class="number">1</span>]]+<span class="number">1</span>, road[s]);</span><br><span class="line">		<span class="keyword">while</span>((i&lt;road.<span class="built_in">size</span>()<span class="number">-2</span>)&amp;&amp;um[road[i]][road[i+<span class="number">1</span>]]==um[road[i+<span class="number">1</span>]][road[i+<span class="number">2</span>]])</span><br><span class="line">			i++;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%04d.\n&quot;</span>,road[i+<span class="number">1</span>]);</span><br><span class="line">		s=i+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1130/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1130/" class="post-title-link" itemprop="url">1130 Infix Expression (25 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-30 17:46:27" itemprop="dateCreated datePublished" datetime="2021-12-30T17:46:27+08:00">2021-12-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Given a syntax tree (binary), you are supposed to output the corresponding infix expression, with parentheses reflecting the precedences of the operators.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤ 20) which is the total number of nodes in the syntax tree. Then N lines follow, each gives the information of a node (the i-th line corresponds to the i-th node) in the format:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data left_child right_child</span><br></pre></td></tr></table></figure>
-<p>where <code>data</code> is a string of no more than 10 characters, <code>left_child</code> and <code>right_child</code> are the indices of this node’s left and right children, respectively. The nodes are indexed from 1 to N. The NULL link is represented by −1. The figures 1 and 2 correspond to the samples 1 and 2, respectively.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each case, print in a line the infix expression, with parentheses reflecting the precedences of the operators. Note that there must be no extra parentheses for the final expression, as is shown by the samples. There must be no space between any symbols.</p>
-<p><strong>Sample Input 1:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">* 8 7</span><br><span class="line">a -1 -1</span><br><span class="line">* 4 1</span><br><span class="line">+ 2 5</span><br><span class="line">b -1 -1</span><br><span class="line">d -1 -1</span><br><span class="line">- -1 6</span><br><span class="line">c -1 -1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output 1:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a+b)*(c*(-d))</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Input 2:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">2.35 -1 -1</span><br><span class="line">* 6 1</span><br><span class="line">- -1 4</span><br><span class="line"><span class="meta">%</span><span class="bash"> 7 8</span></span><br><span class="line">+ 2 3</span><br><span class="line">a -1 -1</span><br><span class="line">str -1 -1</span><br><span class="line">871 -1 -1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output 2:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a*2.35)+(-(str%871))</span><br></pre></td></tr></table></figure>
-
-<p>题目大意：输入每个结点的内容和左右结点，dfs输出</p>
-<p>分析：输入数据后，找到根结点后DFS输出</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*************************************************************************</span></span><br><span class="line"><span class="comment">    &gt; File Name: 1130.cpp</span></span><br><span class="line"><span class="comment">    &gt; Author: user</span></span><br><span class="line"><span class="comment">    &gt; Mail: yyhstd@qq.com </span></span><br><span class="line"><span class="comment">    &gt; Created Time: Wed 29 Dec 2021 07:22:43 AM UTC</span></span><br><span class="line"><span class="comment"> ************************************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	string str;</span><br><span class="line">	<span class="keyword">int</span> left, right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">bool</span> print)</span></span>;</span><br><span class="line"></span><br><span class="line">vector&lt;node&gt; v;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M;</span><br><span class="line">	string str;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	<span class="function">vector&lt;<span class="keyword">bool</span>&gt; <span class="title">f</span><span class="params">(N)</span></span>;</span><br><span class="line">	v.<span class="built_in">resize</span>(N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		cin&gt;&gt;str&gt;&gt;j&gt;&gt;k;</span><br><span class="line">		v[i].str=str;</span><br><span class="line">		v[i].left=j<span class="number">-1</span>;</span><br><span class="line">		v[i].right=k<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">if</span>(j&gt;<span class="number">0</span>)</span><br><span class="line">			f[j<span class="number">-1</span>]=<span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span>(k&gt;<span class="number">0</span>)</span><br><span class="line">			f[k<span class="number">-1</span>]=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!f[i])</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">dfs</span>(i, <span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">bool</span> print)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(root&lt;<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	<span class="keyword">int</span> l, r;</span><br><span class="line">	l = v[root].left;</span><br><span class="line">	r = v[root].right;</span><br><span class="line">	<span class="keyword">if</span>(!(l&lt;<span class="number">0</span> &amp;&amp; r&lt;<span class="number">0</span>)&amp;&amp;print)</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;(&quot;</span>;</span><br><span class="line">	<span class="built_in">dfs</span>(l, <span class="literal">true</span>);</span><br><span class="line">	cout&lt;&lt;v[root].str;</span><br><span class="line">	<span class="built_in">dfs</span>(r, <span class="literal">true</span>);</span><br><span class="line">	<span class="keyword">if</span>(!(l&lt;<span class="number">0</span> &amp;&amp; r&lt;<span class="number">0</span>)&amp;&amp;print)</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;)&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1787,7 +1928,7 @@ For each given binary search tree, you are supposed to tell if it is a legal red
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1836,12 +1977,12 @@ For each given binary search tree, you are supposed to tell if it is a legal red
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">111k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:35</span>
+    <span title="站点阅读时长">1:41</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>

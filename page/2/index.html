@@ -155,6 +155,321 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1155/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1155/" class="post-title-link" itemprop="url">1155 Heap Paths (30 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:37:07" itemprop="dateCreated datePublished" datetime="2021-12-31T17:37:07+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>In computer science, a heap is a specialized tree-based data structure that satisfies the heap property: if P is a parent node of C, then the key (the value) of P is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the key of C. A common implementation of a heap is the binary heap, in which the tree is a complete binary tree. (Quoted from Wikipedia at <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Heap_(data_structure)">https://en.wikipedia.org/wiki/Heap_(data_structure)</a>)</p>
+<p>One thing for sure is that all the keys along any path from the root to a leaf in a max/min heap must be in non-increasing/non-decreasing order.</p>
+<p>Your job is to check every path in a given complete binary tree, in order to tell if it is a heap or not.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives a positive integer N (1&lt;N≤1,000), the number of keys in the tree. Then the next line contains N distinct integer keys (all in the range of int), which gives the level order traversal sequence of a complete binary tree.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each given tree, first print all the paths from the root to the leaves. Each path occupies a line, with all the numbers separated by a space, and no extra space at the beginning or the end of the line. The paths must be printed in the following order: for each node in the tree, all the paths in its right subtree must be printed before those in its left subtree.</p>
+<p>Finally print in a line <code>Max Heap</code> if it is a max heap, or <code>Min Heap</code> for a min heap, or <code>Not Heap</code> if it is not a heap at all.</p>
+<p><strong>Sample Input 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">98 72 86 60 65 12 23 50</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 1:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">98 86 23</span><br><span class="line">98 86 12</span><br><span class="line">98 72 65</span><br><span class="line">98 72 60 50</span><br><span class="line">Max Heap</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Input 2:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">8 38 25 58 52 82 70 60</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 2:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">8 25 70</span><br><span class="line">8 25 82</span><br><span class="line">8 38 52</span><br><span class="line">8 38 58 60</span><br><span class="line">Min Heap</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Input 3:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">10 28 15 12 34 9 8 56</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output 3:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">10 15 8</span><br><span class="line">10 15 9</span><br><span class="line">10 28 34</span><br><span class="line">10 28 12 56</span><br><span class="line">Not Heap</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, isMax, isMin;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; v, s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, M, K;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;N);</span><br><span class="line">	v.<span class="built_in">resize</span>(N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;v[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	isMax = isMin = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">read</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, isMax&amp;&amp;!isMin?<span class="string">&quot;Max Heap&quot;</span>:isMin&amp;&amp;!isMax?<span class="string">&quot;Min Heap&quot;</span>:<span class="string">&quot;Not Heap&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> index)</span></span>&#123;</span><br><span class="line">		s.<span class="built_in">push_back</span>(v[index]);</span><br><span class="line">	<span class="keyword">if</span>(index*<span class="number">2</span>+<span class="number">1</span>&gt;=N)&#123;</span><br><span class="line">		<span class="built_in">print</span>();</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(index*<span class="number">2</span>+<span class="number">2</span>&lt;N)</span><br><span class="line">			<span class="built_in">read</span>(<span class="number">2</span>*index+<span class="number">2</span>);</span><br><span class="line">		<span class="built_in">read</span>(<span class="number">2</span>*index+<span class="number">1</span>);</span><br><span class="line">		s.<span class="built_in">pop_back</span>();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, s[<span class="number">0</span>]);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; %d&quot;</span>,s[i]);</span><br><span class="line">		<span class="keyword">if</span>(s[i]&gt;s[i<span class="number">-1</span>])</span><br><span class="line">			isMin+=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i]&lt;s[i<span class="number">-1</span>])</span><br><span class="line">			isMax+=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	s.<span class="built_in">pop_back</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1154/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1154/" class="post-title-link" itemprop="url">1154 Vertex Coloring (25 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:33:59" itemprop="dateCreated datePublished" datetime="2021-12-31T17:33:59+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>A proper vertex coloring is a labeling of the graph’s vertices with colors such that no two vertices sharing the same edge have the same color. A coloring using at most k colors is called a (proper) k-coloring.</p>
+<p>Now you are supposed to tell if a given coloring is a proper k-coloring.</p>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives two positive integers N and M (both no more than 10^4), being the total numbers of vertices and edges, respectively. Then M lines follow, each describes an edge by giving the indices (from 0 to N−1) of the two ends of the edge.</p>
+<p>After the graph, a positive integer K (≤ 100) is given, which is the number of colorings you are supposed to check. Then K lines follow, each contains N colors which are represented by non-negative integers in the range of int. The i-th color is the color of the i-th vertex.</p>
+<p><strong>Output Specification:</strong></p>
+<p>For each coloring, print in a line <code>k-coloring</code> if it is a proper <code>k</code>-coloring for some positive <code>k</code>, or <code>No</code> if not.</p>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">10 11</span><br><span class="line">8 7</span><br><span class="line">6 8</span><br><span class="line">4 5</span><br><span class="line">8 4</span><br><span class="line">8 1</span><br><span class="line">1 2</span><br><span class="line">1 4</span><br><span class="line">9 8</span><br><span class="line">9 1</span><br><span class="line">1 0</span><br><span class="line">2 4</span><br><span class="line">4</span><br><span class="line">0 1 0 1 4 1 0 1 3 0</span><br><span class="line">0 1 0 1 4 1 0 1 0 0</span><br><span class="line">8 1 0 1 4 1 0 5 3 0</span><br><span class="line">1 2 3 4 5 6 7 8 8 9</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4-coloring</span><br><span class="line">No</span><br><span class="line">6-coloring</span><br><span class="line">No</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> left, right;</span><br><span class="line">&#125;edge;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	<span class="function">vector&lt;edge&gt; <span class="title">v</span><span class="params">(M)</span></span>;</span><br><span class="line">	<span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">n</span><span class="params">(N)</span></span>;</span><br><span class="line">	set&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">	<span class="keyword">bool</span> proper;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;v[i].left, &amp;v[i].right);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;K);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;K; i++)&#123;</span><br><span class="line">		s.<span class="built_in">clear</span>();</span><br><span class="line">		proper = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;N; j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n[j]);</span><br><span class="line">			s.<span class="built_in">insert</span>(n[j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;M; j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(n[v[j].left]==n[v[j].right])&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">				proper = <span class="literal">false</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(proper)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d-coloring\n&quot;</span>,s.<span class="built_in">size</span>());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1153/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/hexo/images/avatar.gif">
+      <meta itemprop="name" content="Yu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/hexo/pat-A-1153/" class="post-title-link" itemprop="url">1153 Decode Registration Card of PAT (25 分)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-31 17:32:30" itemprop="dateCreated datePublished" datetime="2021-12-31T17:32:30+08:00">2021-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>A registration card number of PAT consists of 4 parts:</p>
+<ul>
+<li>the 1st letter represents the test level, namely, <code>T</code> for the top level, <code>A</code> for advance and <code>B</code> for basic;</li>
+<li>the 2nd - 4th digits are the test site number, ranged from 101 to 999;</li>
+<li>the 5th - 10th digits give the test date, in the form of <code>yymmdd</code>;</li>
+<li>finally the 11th - 13th digits are the testee’s number, ranged from 000 to 999.<br>Now given a set of registration card numbers and the scores of the card owners, you are supposed to output the various statistics according to the given queries.</li>
+</ul>
+<p><strong>Input Specification:</strong></p>
+<p>Each input file contains one test case. For each case, the first line gives two positive integers N (≤10^4) and M (≤100), the numbers of cards and the queries, respectively.</p>
+<p>Then N lines follow, each gives a card number and the owner’s score (integer in [0,100]), separated by a space.</p>
+<p>After the info of testees, there are M lines, each gives a query in the format <code>Type Term</code>, where</p>
+<ul>
+<li><code>Type</code> being 1 means to output all the testees on a given level, in non-increasing order of their scores. The corresponding <code>Term</code> will be the letter which specifies the level;</li>
+<li><code>Type</code> being 2 means to output the total number of testees together with their total scores in a given site. The corresponding <code>Term</code> will then be the site number;</li>
+<li><code>Type</code> being 3 means to output the total number of testees of every site for a given test date. The corresponding <code>Term</code> will then be the date, given in the same format as in the registration card.</li>
+</ul>
+<p><strong>Output Specification:</strong></p>
+<p>For each query, first print in a line <code>Case #: input</code>, where <code>#</code> is the index of the query case, starting from 1; and <code>input</code> is a copy of the corresponding input query. Then output as requested:</p>
+<ul>
+<li>for a type 1 query, the output format is the same as in input, that is, <code>CardNumber Score</code>. If there is a tie of the scores, output in increasing alphabetical order of their card numbers (uniqueness of the card numbers is guaranteed);</li>
+<li>for a type 2 query, output in the format <code>Nt Ns</code> where <code>Nt</code> is the total number of testees and <code>Ns</code> is their total score;</li>
+<li>for a type 3 query, output in the format <code>Site Nt</code> where <code>Site</code> is the site number and <code>Nt</code> is the total number of testees at <code>Site</code>. The output must be in non-increasing order of <code>Nt</code>‘s, or in increasing order of site numbers if there is a tie of <code>Nt</code>.<br>If the result of a query is empty, simply print <code>NA</code>.</li>
+</ul>
+<p><strong>Sample Input:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">8 4</span><br><span class="line">B123180908127 99</span><br><span class="line">B102180908003 86</span><br><span class="line">A112180318002 98</span><br><span class="line">T107150310127 62</span><br><span class="line">A107180908108 100</span><br><span class="line">T123180908010 78</span><br><span class="line">B112160918035 88</span><br><span class="line">A107180908021 98</span><br><span class="line">1 A</span><br><span class="line">2 107</span><br><span class="line">3 180908</span><br><span class="line">2 999</span><br></pre></td></tr></table></figure>
+
+<p><strong>Sample Output:</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Case 1: 1 A</span><br><span class="line">A107180908108 100</span><br><span class="line">A107180908021 98</span><br><span class="line">A112180318002 98</span><br><span class="line">Case 2: 2 107</span><br><span class="line">3 260</span><br><span class="line">Case 3: 3 180908</span><br><span class="line">107 2</span><br><span class="line">123 2</span><br><span class="line">102 1</span><br><span class="line">Case 4: 2 999</span><br><span class="line">NA</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">node</span>&#123;</span></span><br><span class="line">	string id;</span><br><span class="line">	<span class="keyword">int</span> score;</span><br><span class="line"></span><br><span class="line">&#125;node;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> _cmp(node a, node b);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	<span class="function">vector&lt;node&gt; <span class="title">v</span><span class="params">(N)</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		cin&gt;&gt;v[i].id&gt;&gt;v[i].score;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), _cmp);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> _type;</span><br><span class="line">		string _term;</span><br><span class="line">		cin&gt;&gt;_type&gt;&gt;_term;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;Case &quot;</span>&lt;&lt;i+<span class="number">1</span>&lt;&lt;<span class="string">&quot;: &quot;</span>&lt;&lt;_type&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;_term&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(_type == <span class="number">1</span>)&#123;</span><br><span class="line">			vector&lt;node&gt; _v1;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;N; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(v[j].id.<span class="built_in">substr</span>(<span class="number">0</span>, <span class="number">1</span>) == _term)&#123;</span><br><span class="line">					_v1.<span class="built_in">push_back</span>(&#123;v[j].id, v[j].score&#125;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(!_v1.<span class="built_in">size</span>())</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;NA\n&quot;</span>);</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;_v1.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%s %d\n&quot;</span>,_v1[j].id.<span class="built_in">c_str</span>(),_v1[j].score);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(_type == <span class="number">2</span>)&#123;</span><br><span class="line">			<span class="keyword">int</span> _num, _scores;</span><br><span class="line">			_scores = _num = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(j=k=<span class="number">0</span>; j&lt;N; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(v[j].id.<span class="built_in">substr</span>(<span class="number">1</span>, <span class="number">3</span>) == _term)&#123;</span><br><span class="line">					_scores += v[j].score;</span><br><span class="line">					_num++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(_num)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, _num, _scores);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;NA\n&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			unordered_map&lt;string, <span class="keyword">int</span>&gt; _m3;</span><br><span class="line">			vector&lt;node&gt; _v3;</span><br><span class="line">			<span class="keyword">for</span>(j=k=<span class="number">0</span>; j&lt;N; j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(v[j].id.<span class="built_in">substr</span>(<span class="number">4</span>, <span class="number">6</span>) == _term)&#123;</span><br><span class="line">					_m3[v[j].id.<span class="built_in">substr</span>(<span class="number">1</span>, <span class="number">3</span>)]++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">auto</span> it=_m3.<span class="built_in">begin</span>(); it!= _m3.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">				_v3.<span class="built_in">push_back</span>(&#123;it-&gt;first, it-&gt;second&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">sort</span>(_v3.<span class="built_in">begin</span>(), _v3.<span class="built_in">end</span>(), _cmp);</span><br><span class="line">			<span class="keyword">if</span>(!_v3.<span class="built_in">size</span>())</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;NA\n&quot;</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;_v3.<span class="built_in">size</span>();j++)</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;%s %d\n&quot;</span>,_v3[j].id.<span class="built_in">c_str</span>(), _v3[j].score);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> _cmp(node a, node b)&#123;</span><br><span class="line">	<span class="keyword">return</span> a.score==b.score ? a.id&lt;b.id : a.score&gt;b.score;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1152/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -837,292 +1152,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1145/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1145/" class="post-title-link" itemprop="url">1145 Hashing - Average Search Time (25 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 17:09:21" itemprop="dateCreated datePublished" datetime="2021-12-31T17:09:21+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>The task of this problem is simple: insert a sequence of distinct positive integers into a hash table first. Then try to find another sequence of integer keys from the table and output the average search time (the number of comparisons made to find whether or not the key is in the table). The hash function is defined to be H(key)=key%TSize where TSize is the maximum size of the hash table. Quadratic probing (with positive increments only) is used to solve the collisions.</p>
-<p>Note that the table size is better to be prime. If the maximum size given by the user is not prime, you must re-define the table size to be the smallest prime number which is larger than the size given by the user.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line contains 3 positive numbers: MSize, N, and M, which are the user-defined table size, the number of input numbers, and the number of keys to be found, respectively. All the three numbers are no more than 10^4. Then N distinct positive integers are given in the next line, followed by M positive integer keys in the next line. All the numbers in a line are separated by a space and are no more than 10^5.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each test case, in case it is impossible to insert some number, print in a line <code>X cannot be inserted.</code> where <code>X</code> is the input number. Finally print in a line the average search time for all the M keys, accurate up to 1 decimal place.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4 5 4</span><br><span class="line">10 6 4 15 11</span><br><span class="line">11 4 15 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">15 cannot be inserted.</span><br><span class="line">2.8</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, s, n, N, M, K;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>, &amp;K, &amp;N, &amp;M);</span><br><span class="line">	<span class="keyword">while</span>(!<span class="built_in">isprime</span>(K))</span><br><span class="line">		K++;</span><br><span class="line">	<span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">v</span><span class="params">(K)</span></span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">		<span class="keyword">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;K; j++)&#123;</span><br><span class="line">			k=(n+j*j)%K;</span><br><span class="line">			<span class="keyword">if</span>(v[k]==<span class="number">0</span>)&#123;</span><br><span class="line">				v[k] = n;</span><br><span class="line">				flag=<span class="literal">true</span>;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!flag)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;%d cannot be inserted.\n&quot;</span>,n);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	s=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;M; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;=K; j++)&#123;</span><br><span class="line">			s++;</span><br><span class="line">			k=(n+j*j)%K;</span><br><span class="line">			<span class="keyword">if</span>(v[k]==<span class="number">0</span> || v[k]==n)&#123;	</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.1lf\n&quot;</span>, s*<span class="number">1.0</span>/M);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isprime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;<span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>; i*i&lt;= n; i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1144/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1144/" class="post-title-link" itemprop="url">1144 The Missing Number (20 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 17:07:34" itemprop="dateCreated datePublished" datetime="2021-12-31T17:07:34+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>762</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Given N integers, you are supposed to find the smallest positive integer that is NOT in the given list.</p>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤10^5). Then N integers are given in the next line, separated by spaces. All the numbers are in the range of int.</p>
-<p><strong>Output Specification:</strong></p>
-<p>Print in a line the smallest positive integer that is missing from the input list.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">5 -25 9 6 1 3 4 2 5 17</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N;</span><br><span class="line">	unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">bool</span>&gt; m;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;N);</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;N; i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;j);</span><br><span class="line">		m[j]=<span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">		<span class="keyword">if</span>(!m[i+<span class="number">1</span>])</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/pat-A-1143/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/hexo/images/avatar.gif">
-      <meta itemprop="name" content="Yu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/pat-A-1143/" class="post-title-link" itemprop="url">1143 Lowest Common Ancestor (30 分)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-31 17:05:35" itemprop="dateCreated datePublished" datetime="2021-12-31T17:05:35+08:00">2021-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/hexo/categories/PAT/" itemprop="url" rel="index"><span itemprop="name">PAT</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants.</p>
-<p>A binary search tree (BST) is recursively defined as a binary tree which has the following properties:</p>
-<ul>
-<li>The left subtree of a node contains only nodes with keys less than the node’s key.</li>
-<li>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.</li>
-<li>Both the left and right subtrees must also be binary search trees.<br>Given any two nodes in a BST, you are supposed to find their LCA.</li>
-</ul>
-<p><strong>Input Specification:</strong></p>
-<p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 1,000), the number of pairs of nodes to be tested; and N (≤ 10,000), the number of keys in the BST, respectively. In the second line, N distinct integers are given as the preorder traversal sequence of the BST. Then M lines follow, each contains a pair of integer keys U and V. All the keys are in the range of int.</p>
-<p><strong>Output Specification:</strong></p>
-<p>For each given pair of U and V, print in a line <code>LCA of U and V is A.</code> if the LCA is found and <code>A</code> is the key. But if <code>A</code> is one of U and V, print <code>X is an ancestor of Y.</code> where <code>X</code> is <code>A</code> and <code>Y</code> is the other node. If U or V is not found in the BST, print in a line <code>ERROR: U is not found.</code> or <code>ERROR: V is not found.</code> or <code>ERROR: U and V are not found.</code>.</p>
-<p><strong>Sample Input:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">6 3 1 2 5 4 8 7</span><br><span class="line">2 5</span><br><span class="line">8 7</span><br><span class="line">1 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
-
-<p><strong>Sample Output:</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 5 is 3.</span><br><span class="line">8 is an ancestor of 7.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, N, M, K;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;M);</span><br><span class="line">	<span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">v</span><span class="params">(M)</span></span>;</span><br><span class="line">	unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;M;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;v[i]);</span><br><span class="line">		m[v[i]]=i+<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;j,&amp;k);</span><br><span class="line">		<span class="keyword">if</span>(m[j]&amp;&amp;m[k])&#123;</span><br><span class="line">			<span class="keyword">int</span> t=j;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> l=m[j]<span class="number">-1</span>;l&gt;=<span class="number">0</span>;l--)&#123;</span><br><span class="line">				<span class="keyword">if</span>(v[l]&gt;=j&amp;&amp;k&gt;=v[l])</span><br><span class="line">					t=v[l];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>;l&lt;m[j];l++)&#123;</span><br><span class="line">				<span class="keyword">if</span>((v[l]&gt;=j&amp;&amp;k&gt;=v[l]) || (v[l]&lt;=j&amp;&amp;v[l]&gt;=k))&#123;</span><br><span class="line">					t=v[l];</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(t==j|| t==k)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d is an ancestor of %d.\n&quot;</span>,t,t==j?k:j);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;LCA of %d and %d is %d.\n&quot;</span>,j,k,t);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(m[j]||m[k])</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;ERROR: %d is not found.\n&quot;</span>, m[j]?k:j);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;ERROR: %d and %d are not found.\n&quot;</span>, j, k);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1192,7 +1221,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/hexo/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1241,12 +1270,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">105k</span>
+    <span title="站点总字数">111k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:35</span>
+    <span title="站点阅读时长">1:41</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
